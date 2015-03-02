@@ -5,7 +5,7 @@
 module.exports = function(grunt) {
 
   /**
-   * [config description]
+   * Folder project names
    * @type {Object}
    */
   var config = {
