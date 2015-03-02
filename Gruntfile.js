@@ -74,6 +74,22 @@ module.exports = function(grunt) {
             ];
           }
         }
+      },
+      test: {
+        options: {
+          port: 8001,
+          middleware: function(connect) {
+            return [
+              connect.static('.tmp'),
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect.static('test'),
+              connect.static(config.app)
+            ];
+          }
+        }
       }
     },
 
@@ -98,6 +114,15 @@ module.exports = function(grunt) {
             '.tmp/styles/main.css',
             'bower_components/leaflet-dist/leaflet.css'
           ]
+        }
+      }
+    },
+
+    // Testing with Mocha and Phantom JS
+    'mocha_phantomjs': {
+      all: {
+        options: {
+          urls: ['http://localhost:<%= connect.test.options.port %>/index.html']
         }
       }
     },
@@ -226,6 +251,13 @@ module.exports = function(grunt) {
       styles: {
         files: '<%= config.app %>/styles/{,*/}*.scss',
         tasks: ['sass']
+      },
+      test: {
+        files: [
+          'test/spec_runner.js',
+          'test/specs/**/{,*/}*_spec.js'
+        ],
+        tasks: ['jshint', 'mocha_phantomjs']
       }
     },
 
@@ -244,7 +276,9 @@ module.exports = function(grunt) {
    * command: grunt
    */
   grunt.registerTask('test', [
-    'jshint'
+    'jshint',
+    'connect:test',
+    'mocha_phantomjs'
   ]);
 
   /**
@@ -253,7 +287,6 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('default', [
     'clean:server',
-    'test',
     'sass'
   ]);
 
@@ -263,7 +296,16 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [
     'default',
     'connect:server',
-    'watch'
+    'watch:scripts',
+    'watch:styles'
+  ]);
+
+  /**
+   * Create local server to test only
+   */
+  grunt.registerTask('test_server', [
+    'test',
+    'watch:test'
   ]);
 
   /**
