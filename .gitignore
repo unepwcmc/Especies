@@ -1,0 +1,21 @@
+# Mac OS
+.DS_Store
+
+# Text editors
+*.sublime*
+.sublime*
+
+# Temporal folders
+.tmp
+.sass-cache
+.grunt
+
+# Vendors
+node_modules
+bower_components
+
+# Compiled folders
+dist
+
+# Logs
+*.log
