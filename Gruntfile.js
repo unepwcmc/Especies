@@ -255,7 +255,7 @@ module.exports = function(grunt) {
       test: {
         files: [
           'test/spec_runner.js',
-          'test/specs/**/{,*/}*_spec.js'
+          'test/specs/{,*/}*_spec.js'
         ],
         tasks: ['jshint', 'mocha_phantomjs']
       }

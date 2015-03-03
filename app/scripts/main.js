@@ -4,7 +4,6 @@ require.config({
 
   paths: {
     jquery: '../../bower_components/jquery/dist/jquery',
-    foundation: '../../bower_components/foundation/js/foundation',
     underscore: '../../bower_components/underscore/underscore',
     backbone: '../../bower_components/backbone/backbone',
     handlebars: '../../bower_components/handlebars/handlebars',
@@ -22,9 +21,8 @@ require.config({
 
 
 require([
-  'foundation',
   'backbone'
-], function($, Backbone) {
+], function(Backbone) {
 
   'use strict';
 
@@ -35,7 +33,9 @@ require([
 
     el: document.body,
 
-    start: function() {}
+    start: function() {
+      Backbone.history.start({ pushState: false });
+    }
 
   });
 

@@ -1,14 +1,16 @@
 require.config({
 
-  baseUrl: 'scripts',
+  baseUrl: './scripts',
 
   paths: {
+    // Project libraries
     jquery: '../../bower_components/jquery/dist/jquery',
-    foundation: '../../bower_components/foundation/js/foundation',
     underscore: '../../bower_components/underscore/underscore',
     backbone: '../../bower_components/backbone/backbone',
     handlebars: '../../bower_components/handlebars/handlebars',
     text: '../../bower_components/text/text',
+
+    // Test libraries
     mocha: '../../bower_components/mocha/mocha',
     chai: '../../bower_components/chai/chai',
     sinon: '../../bower_components/sinonjs/sinon'
@@ -35,7 +37,11 @@ require([
 
   mocha.ui('bdd');
 
-  require(['../../specs/collections/species_collection_spec'], function() {
+  require([
+    '../../specs/router_spec',
+    '../../specs/models/specie_model_spec',
+    '../../specs/collections/species_collection_spec'
+  ], function() {
 
     (window.mochaPhantomJS) ? mochaPhantomJS.run() : mocha.run();
 

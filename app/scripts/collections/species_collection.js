@@ -4,7 +4,7 @@ define(['backbone'], function(Backbone) {
 
   var SpeciesCollection = Backbone.Collection.extend({
 
-    url: '/api/species'
+    url: '/api/taxa'
 
   });
 

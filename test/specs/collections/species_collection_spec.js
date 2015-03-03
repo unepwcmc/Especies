@@ -27,7 +27,7 @@ define([
 
       it('should return a correct json data', function(done) {
 
-        this.server.respondWith('GET', '/api/species', [
+        this.server.respondWith('GET', '/api/taxa', [
           200,
           { 'Content-Type': 'application/json' },
           JSON.stringify([{
