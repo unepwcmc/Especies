@@ -25,6 +25,11 @@
   "maxlen": 80,
   "predef": [
     "require",
-    "define"
+    "define",
+    "describe",
+    "it",
+    "before",
+    "beforeEach",
+    "after"
   ]
 }
