@@ -27,6 +27,9 @@
     "require",
     "define",
     "describe",
-    "it"
+    "it",
+    "before",
+    "beforeEach",
+    "after"
   ]
 }

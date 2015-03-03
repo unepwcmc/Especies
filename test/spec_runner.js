@@ -10,7 +10,8 @@ require.config({
     handlebars: '../../bower_components/handlebars/handlebars',
     text: '../../bower_components/text/text',
     mocha: '../../bower_components/mocha/mocha',
-    chai: '../../bower_components/chai/chai'
+    chai: '../../bower_components/chai/chai',
+    sinon: '../../bower_components/sinonjs/sinon'
   },
 
   shim: {
