@@ -13,12 +13,11 @@ define([
   var SearchView = Backbone.View.extend({
 
     events: {
-      'keyup input': 'onKeyUp',
-      'submit form': 'onSubmit'
+      'keyup input': 'onKeyUp'
     },
 
     defaults: {
-      timer: 100
+      timer: 300
     },
 
     template: Handlebars.compile(tpl),
@@ -38,26 +37,12 @@ define([
      * @param  {@event} e
      */
     onKeyUp: function(e) {
-      var self = this;
       if (this.timer) {
         clearTimeout(this.timer);
       }
       this.timer = setTimeout(function() {
-        console.log(e.currentTarget.value);
-        self.trigger('search:change', e.currentTarget.value);
+        Backbone.Events.trigger('search:change', e.currentTarget.value);
       }, this.options.timer);
-    },
-
-    /**
-     * Trigger event with query search on submit
-     * @param  {@event} e
-     */
-    onSubmit: function(e) {
-      e.preventDefault();
-      var params = $(e.currentTarget).serializeArray();
-      var value = _.findWhere(params, {name: 'query'});
-      console.log(value);
-      this.trigger('search:change', value ? value.value : null);
     }
 
   });

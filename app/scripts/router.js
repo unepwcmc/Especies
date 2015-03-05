@@ -7,7 +7,7 @@ define(['backbone'], function(Backbone) {
     routes: {
       '(/)': 'welcome',
       'especies(/)': 'listSpecies',
-      'especies/:id(/)': 'showSpecies'
+      'especies/:id(/)': 'showSpecie'
     }
 
   });

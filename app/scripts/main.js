@@ -26,11 +26,12 @@ require([
   'handlebars',
   'router',
   'views/search_view',
+  'views/suggestions_view',
   'text!templates/welcome_page_tpl.handlebars',
   'text!templates/list_page_tpl.handlebars',
   'text!templates/detail_page_tpl.handlebars'
 ], function(_, Backbone, Handlebars,
-  Router, SearchView,
+  Router, SearchView, SuggestionsView,
   welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
@@ -70,6 +71,8 @@ require([
         this.showWelcomePage();
       } else if (routeName === 'listSpecies') {
         this.showEspeciesPage();
+      } else if (routeName === 'showSpecie') {
+        this.showEspeciesPage();
       }
     },
 
@@ -79,19 +82,34 @@ require([
     showWelcomePage: function() {
       this.currentTemplate = this.templates.welcome;
       this.render();
-      this.$el.find('.m-search').html( new SearchView().render().el );
+      this.searchModule();
     },
 
 
     /**
-     * Instance and render modules for welcome page
+     * Instance and render modules for list page
      */
     showEspeciesPage: function() {
       this.currentTemplate = this.templates.list;
       this.render();
-      this.$el.find('.m-search').html( new SearchView().render().el );
+      this.searchModule();
     },
 
+    /**
+     * Instance and render modules for detail page
+     */
+    showSpeciePage: function() {
+      this.currentTemplate = this.templates.detail;
+      this.render();
+    },
+
+    /**
+     * Search module
+     */
+    searchModule: function() {
+      this.$el.find('.m-search').html( new SearchView().render().el );
+      this.$el.find('.m-suggestions').html( new SuggestionsView().render().el );
+    },
 
     /**
      * Start router with HTML5 History API
