@@ -1,0 +1,7 @@
+.m-container {
+  @extend %center;
+  padding: 80px;
+  background-color: $bg-color-0;
+  border-radius: 10px;
+  text-align: center;
+}

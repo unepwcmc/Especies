@@ -11,18 +11,21 @@ require.config({
   },
 
   shim: {
-    foundation: {
-      deps: ['jquery'],
-      exports: '$'
-    }
+    // foundation: {
+    //   deps: ['jquery'],
+    //   exports: '$'
+    // }
   }
 
 });
 
 
 require([
-  'backbone'
-], function(Backbone) {
+  'backbone',
+  'router',
+  'views/search_view',
+  'views/list_view'
+], function(Backbone, Router, SearchView, ListView) {
 
   'use strict';
 
@@ -31,7 +34,33 @@ require([
    */
   var App = Backbone.View.extend({
 
-    el: document.body,
+    el: '#main',
+
+    initialize: function() {
+      this.router = new Router();
+
+      this.search = new SearchView();
+
+      this.setListeners();
+    },
+
+    setListeners: function() {
+      this.listenTo(this.router, 'route', this.checkPage);
+    },
+
+    checkPage: function(nameRouter) {
+      if (nameRouter === 'welcome') {
+        this.currentPageView = new SearchView();
+      } else if (nameRouter === 'listSpecies') {
+        this.currentPageView = new ListView();
+      }
+
+      this.render();
+    },
+
+    render: function() {
+      this.$el.html( this.currentPageView.render().el );
+    },
 
     start: function() {
       Backbone.history.start({ pushState: false });
