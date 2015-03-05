@@ -111,9 +111,19 @@ module.exports = function(grunt) {
         files: {
           '<%= config.dist %>/styles/main.css': [
             '.tmp/styles/main.css',
-            'bower_components/leaflet-dist/leaflet.css'
+            'bower_components/normalize-css/normalize.css'
           ]
         }
+      }
+    },
+
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions']
+      },
+      compile: {
+        src: '.tmp/styles/main.css',
+        dest: '.tmp/styles/main.css'
       }
     },
 
@@ -249,7 +259,7 @@ module.exports = function(grunt) {
       },
       styles: {
         files: '<%= config.app %>/styles/{,*/}*.scss',
-        tasks: ['sass']
+        tasks: ['sass', 'autoprefixer']
       }
     },
 
@@ -309,6 +319,7 @@ module.exports = function(grunt) {
     'useminPrepare',
     'requirejs',
     'sass',
+    'autoprefixer',
     'imagemin',
     'svgmin',
     'copy:dist',
