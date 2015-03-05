@@ -5,3 +5,14 @@
 
 .l-main {
 }
+
+.l-article-header {
+  width: 100%;
+  background-color: $bg-color-2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.l-content {
+  padding: 0 $large-margin $large-margin;
+}

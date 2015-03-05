@@ -68,6 +68,8 @@ require([
     showPage: function(routeName) {
       if (routeName === 'welcome') {
         this.showWelcomePage();
+      } else if (routeName === 'listSpecies') {
+        this.showEspeciesPage();
       }
     },
 
@@ -79,6 +81,17 @@ require([
       this.render();
       this.$el.find('.m-search').html( new SearchView().render().el );
     },
+
+
+    /**
+     * Instance and render modules for welcome page
+     */
+    showEspeciesPage: function() {
+      this.currentTemplate = this.templates.list;
+      this.render();
+      this.$el.find('.m-search').html( new SearchView().render().el );
+    },
+
 
     /**
      * Start router with HTML5 History API
