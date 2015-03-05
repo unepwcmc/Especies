@@ -52,13 +52,13 @@ define([
 
         this.specie
           .fetch({
-            success: function() {
-              // expect(model.attributes)
-              //   .to.have.all.keys(
-              //     'kingdomName', 'phylumName', 'className', 'orderName',
-              //     'familyName', 'genusName', 'scientificName', 'speciesId',
-              //     'speciesPlusId', 'gbifId', 'citesListings'
-              //   );
+            success: function(model) {
+              expect(model.attributes)
+                .to.have.all.keys(
+                  'id', 'kingdomName', 'phylumName', 'className', 'orderName',
+                  'familyName', 'genusName', 'scientificName', 'speciesId',
+                  'speciesPlusId', 'gbifId', 'citesListings'
+                );
               done();
             }
           });

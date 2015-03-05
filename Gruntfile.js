@@ -250,13 +250,6 @@ module.exports = function(grunt) {
       styles: {
         files: '<%= config.app %>/styles/{,*/}*.scss',
         tasks: ['sass']
-      },
-      test: {
-        files: [
-          'test/spec_runner.js',
-          'test/specs/{,*/}*_spec.js'
-        ],
-        tasks: ['jshint', 'mocha_phantomjs']
       }
     },
 
