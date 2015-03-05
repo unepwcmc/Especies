@@ -26,7 +26,9 @@ define([
       var query = this.getUrlParam('q');
       this.collection.fetch({
         data: {
-          scientificName: query
+          scientificName: query,
+          page: 1,
+          perPage: 14
         }
       }).done(_.bind(this.render, this));
     },

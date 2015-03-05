@@ -182,7 +182,7 @@ module.exports = function(grunt) {
       options: {
         assetsDirs: [
           '<%= config.dist %>',
-          '<%= config.dist %>/assets',
+          '<%= config.dist %>/images',
           '<%= config.dist %>/styles'
         ]
       },
@@ -195,9 +195,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/assets',
+          cwd: '<%= config.app %>/images',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/assets'
+          dest: '<%= config.dist %>/images'
         }]
       }
     },
@@ -206,9 +206,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/assets',
+          cwd: '<%= config.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/assets'
+          dest: '<%= config.dist %>/images'
         }]
       }
     },
@@ -240,13 +240,14 @@ module.exports = function(grunt) {
     rev: {
       dist: {
         files: {
-          src: [
-            '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
-            '<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/styles/fonts/{,*/}*.*',
-            '<%= config.dist %>/*.{ico,png}'
-          ]
+          // src: [
+          //   '<%= config.dist %>/scripts/{,*/}*.js',
+          //   '<%= config.dist %>/styles/{,*/}*.css',
+          //   '<%= config.dist %>/images/{,*/}*.*',
+          //   '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          //   '<%= config.dist %>/*.{ico,png}'
+          // ]
+          src: ['<%= config.dist %>/**/*.{js,css,png,jpg}']
         }
       }
     },
@@ -325,7 +326,6 @@ module.exports = function(grunt) {
     'copy:dist',
     'concat:generated',
     'cssmin:compile',
-    'rev',
     'usemin',
     'htmlmin'
   ]);
@@ -334,6 +334,6 @@ module.exports = function(grunt) {
    * Deploy with gh-pages
    * command: grunt deploy
    */
-  grunt.registerTask('deploy', ['test', 'build', 'gh-pages']);
+  grunt.registerTask('deploy', ['build', 'gh-pages']);
 
 };
