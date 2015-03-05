@@ -4,8 +4,8 @@ define([
   'handlebars',
   'collections/suggestions_collection',
   'views/suggestions_view',
-  'text!templates/search_view_template.handlebars'
-  ], function(_, Backbone, Handlebars,
+  'text!templates/search_tpl.handlebars'
+], function(_, Backbone, Handlebars,
     SuggestionsCollection, SuggestionsView, tpl) {
 
   'use strict';

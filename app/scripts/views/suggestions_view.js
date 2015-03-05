@@ -1,7 +1,7 @@
 define([
   'backbone',
   'handlebars',
-  'text!templates/suggestion_list_tpl.handlebars'
+  'text!templates/suggestions_tpl.handlebars'
 ], function(Backbone, Handlebars, tpl) {
 
   'use strict';

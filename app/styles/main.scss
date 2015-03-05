@@ -1,5 +1,16 @@
 @import
-  "normalize",
-  "foundation",
+  "settings",
+  "helpers",
+  "states",
 
-  "base";
+  "layout/layout",
+  "layout/grid",
+
+  "base/general",
+  "base/buttons",
+  "base/icons",
+  "base/form",
+  "base/table",
+
+  "modules/m-container"
+

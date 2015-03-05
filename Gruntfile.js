@@ -98,8 +98,7 @@ module.exports = function(grunt) {
       compile: {
         options: {
           bundleExec: true,
-          style: 'expanded',
-          loadPath: ['./bower_components/foundation/scss']
+          style: 'expanded'
         },
         files: {
           '.tmp/styles/main.css': '<%= config.app %>/styles/main.scss'

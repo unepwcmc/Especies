@@ -21,8 +21,17 @@ require.config({
 
 
 require([
-  'backbone'
-], function(Backbone) {
+  'underscore',
+  'backbone',
+  'handlebars',
+  'router',
+  'views/search_view',
+  'text!templates/welcome_page_tpl.handlebars',
+  'text!templates/list_page_tpl.handlebars',
+  'text!templates/detail_page_tpl.handlebars'
+], function(_, Backbone, Handlebars,
+  Router, SearchView,
+  welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
 
@@ -34,23 +43,28 @@ require([
     el: '#main',
 
     templates: {
-      welcome: Handlebars.compile.,
-      list: listTpl,
-      detail: detailTpl
+      welcome: Handlebars.compile(welcomeTpl),
+      list: Handlebars.compile(listTpl),
+      detail: Handlebars.compile(detailTpl)
     },
 
     initialize: function() {
       this.router = new Router();
+      this.setListeners();
     },
 
     setListeners: function() {
-      this.listenTo(this.router, 'routes', this.showPage);
+      this.listenTo(this.router, 'route', this.showPage);
     },
 
     render: function() {
       this.$el.html( this.currentTemplate() );
     },
 
+    /**
+     * Page dispatcher by route name
+     * @param  {String} routeName
+     */
     showPage: function(routeName) {
       if (routeName === 'welcome') {
         this.showWelcomePage();
@@ -63,9 +77,7 @@ require([
     showWelcomePage: function() {
       this.currentTemplate = this.templates.welcome;
       this.render();
-      // this.modules.map(function(module) {
-      //   this.
-      // });
+      this.$el.find('.m-search').html( new SearchView().render().el );
     },
 
     /**
