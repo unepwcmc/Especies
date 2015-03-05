@@ -28,12 +28,18 @@ define([
     showSpecies: function() {
       var query = this.getUrlParam('q');
       var page = this.getUrlParam('page');
+      var rank = this.getUrlParam('rank');
+      var params = {
+        page: page || 1,
+        perPage: 14
+      };
+      if (query && !rank) {
+        params.scientificName = query;
+      } else if (rank) {
+        params.rank = rank;
+      }
       this.collection.fetch({
-        data: {
-          scientificName: query,
-          page: page || 1,
-          perPage: 14
-        }
+        data: params
       }).done(_.bind(this.render, this));
     },
 

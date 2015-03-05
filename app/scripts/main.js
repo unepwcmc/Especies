@@ -105,6 +105,7 @@ require([
       this.currentTemplate = this.templates.detail;
       this.render();
       this.searchModule();
+      console.log(id);
       new DetailView({ el: '.especie-detail' }, id);
     },
 
