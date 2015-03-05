@@ -8,6 +8,8 @@
 
 .l-article-header {
   width: 100%;
+  box-sizing: border-box;
+  padding: 0 $large-margin;
   background-color: $bg-color-2;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
