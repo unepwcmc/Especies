@@ -28,5 +28,10 @@
     padding: $micro-margin 0;
     font-size: $text-size;
     font-weight: 500;
+
+    &:hover,
+    &.is-current {
+      background-color: $bg-color-2;
+    }
   }
 }
