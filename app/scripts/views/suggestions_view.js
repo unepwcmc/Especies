@@ -17,7 +17,9 @@ define([
     },
 
     render: function() {
-      this.$el.html( this.template( this.collection.toJSON() ) );
+      this.$el.html(this.template( {
+        suggestions: this.collection.toJSON()
+      }));
     }
 
   });
