@@ -1,5 +1,6 @@
 .m-container {
-  @extend %center;
+  // @extend %center;
+  margin: auto;
   box-sizing: border-box;
   background-color: $bg-color-0;
   border-radius: 5px;
