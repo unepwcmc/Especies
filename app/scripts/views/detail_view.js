@@ -2,7 +2,7 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'model/specie_model',
+  'models/specie_model',
   'text!templates/specie_detail_tpl.handlebars'
 ], function(_, Backbone, Handlebars, SpecieModel, tpl) {
 
