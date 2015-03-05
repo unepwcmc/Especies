@@ -1,12 +1,14 @@
-<ul>
-  {{#each species}}
-    <li class="m-especie-item">
-      <p class="especie-name">{{scientificName}} <span>- Wolf, Lobo</span></p>
-      <div class="data-origin">
-        <img src="images/logo_gbif.png" alt="gbif">
-        <img src="images/logo_species.png" alt="Species+">
-        <img src="images/logo_brazil.png" alt="Brazil">
-      </div>
-    </li>
-  {{/each}}
-</ul>
+<div class="especies-list-wrapper">
+  <ul>
+    {{#each species}}
+      <li class="m-especie-item">
+        <p class="especie-name">{{scientificName}} <span>- Wolf, Lobo</span></p>
+        <div class="data-origin">
+          <img src="images/logo_gbif.png" alt="gbif">
+          <img src="images/logo_species.png" alt="Species+">
+          <img src="images/logo_brazil.png" alt="Brazil">
+        </div>
+      </li>
+    {{/each}}
+  </ul>
+</div>
