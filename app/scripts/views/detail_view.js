@@ -18,7 +18,6 @@ define([
      * @param  {Number} id
      */
     initialize: function(settings, id) {
-      console.log(id);
       if (!id) {
         throw 'ID param must be defined.';
       }
