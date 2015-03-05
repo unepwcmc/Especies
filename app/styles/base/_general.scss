@@ -25,3 +25,8 @@ ul {
 button {
   @extend %form-field-reset;
 }
+
+a {
+  text-decoration: none;
+  color: $text-color-1;
+}

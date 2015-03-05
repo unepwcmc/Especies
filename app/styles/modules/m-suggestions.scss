@@ -1,0 +1,25 @@
+.m-suggestions {
+  position: relative;
+  width: 75%;
+  max-height: 120px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: #fff;
+  transform: translatey(100%);
+  border: 1px solid $grey-db;
+
+  .suggestions-wrapper {
+    position: absolute;
+    top: $small-margin;
+    bottom: $small-margin;
+    right: $small-margin;
+    left: $small-margin;
+  }
+
+  li {
+    text-align: left;
+    font-style: italic;
+    padding: $micro-margin 0;
+  }
+}
