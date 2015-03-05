@@ -1,0 +1,16 @@
+th {
+  text-transform: uppercase;
+  color: $grey-a;
+  font-size: $micro-size;
+  text-align: right;
+  padding-right: 30px;
+}
+
+td {
+  font-size: $text-size;
+  font-style: italic;
+
+  &.first-name {
+    font-weight: 700;
+  }
+}
