@@ -13,6 +13,10 @@ h1 {
   line-height: $header-height;
 }
 
+input {
+  @extend %form-field-reset;
+}
+
 ul {
   @extend %reset-list;
 }

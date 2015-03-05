@@ -58,7 +58,6 @@ require([
     },
 
     render: function() {
-      console.log('hola');
       this.$el.html( this.currentTemplate() );
     },
 

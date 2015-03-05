@@ -1,8 +1,15 @@
 .m-container {
   @extend %center;
   box-sizing: border-box;
-  // padding: 80px;
-  background-color: $bg-color-0;
+  background-color: $bg-color-2;
   border-radius: 5px;
   text-align: center;
+
+  h2 {
+    margin-top: $large-margin;
+  }
+
+  &.welcome-page {
+    padding: $large-margin;
+  }
 }
