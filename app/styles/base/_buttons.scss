@@ -1,0 +1,15 @@
+%btn {
+  padding: $small-margin $medium-margin;
+  color: $text-color-0;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+%btn-green {
+  @extend %btn;
+  background-color: $bg-color-1;
+}
+
+.btn-search {
+  @extend %btn-green;
+}

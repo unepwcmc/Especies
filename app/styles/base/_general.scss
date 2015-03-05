@@ -1,0 +1,27 @@
+body {
+  width: 100%;
+  background-image: url('../../images/background.jpg');
+  background-size: contains;
+  font-family: $main-font-family;
+  color: $text-color-1;
+}
+
+h1 {
+  margin: 0;
+  font-weight: 800;
+  color: $text-color-2;
+  font-size: $h1-font-size;
+  line-height: $header-height;
+}
+
+input {
+  @extend %form-field-reset;
+}
+
+ul {
+  @extend %reset-list;
+}
+
+button {
+  @extend %form-field-reset;
+}

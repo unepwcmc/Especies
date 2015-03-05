@@ -1,0 +1,17 @@
+.m-container {
+  @extend %center;
+  box-sizing: border-box;
+  background-color: $bg-color-2;
+  border-radius: 5px;
+  text-align: center;
+
+  h2 {
+    margin-top: $large-margin;
+    font-size: $regular-size;
+    font-weight: 600;
+  }
+
+  &.welcome-page {
+    padding: $large-margin;
+  }
+}

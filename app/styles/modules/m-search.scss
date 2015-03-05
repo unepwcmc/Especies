@@ -1,0 +1,33 @@
+.m-search {
+  padding: 35px 0;
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: row;
+
+  }
+
+  input {
+    box-sizing: border-box;
+    width: 75%;
+    background-color: $bg-color-0;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid $bg-color-2;
+    border-right: 0;
+    padding: $small-margin;
+
+    @include placeholder() {
+      font-style: italic;
+      font-size: $regular-size;
+    }
+
+  }
+
+  .btn-search {
+    box-sizing: border-box;
+    width: 25%;
+    text-transform: uppercase;
+  }
+}
+

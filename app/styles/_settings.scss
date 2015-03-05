@@ -1,0 +1,47 @@
+// Screens
+$screen-sm: 540px;
+$screen-md: 960px;
+$screen-lg: 1200px;
+
+// Grid
+$grid-columns: 12;
+$grid-max-width: 960px;
+$grid-gutter-width: 1%;
+
+
+// Margins
+$large-margin: 80px;
+$medium-margin: 40px;
+$small-margin: 20px;
+$micro-margin: 20px;
+
+// Fonts
+$main-font-family: 'Raleway';
+
+// Font-sizes
+$h1-font-size: 32px;
+$regular-size: 20px;
+$micro-size: 12px;
+$text-size: 14px;
+
+// Colors
+$white: #fff;
+$gray-dark: #333;
+$grey-light: #CDCDCD;
+$grey-extra-light: #F1F1F1;
+$green: #AEC139;
+
+// Theme
+$bg-color-0: $white;
+$bg-color-1: $green;
+$bg-color-2: $grey-extra-light;
+
+$text-color-0: $white;
+$text-color-1: $gray-dark;
+$text-color-2: $green;
+$text-color-3: $grey-light;
+
+
+
+
+$header-height: 40px;
