@@ -1,0 +1,23 @@
+.m-detail-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .search-wrapper {
+    width: 33%;
+  }
+
+  .item-title {
+    h2 {
+      font-style: italic;
+      font-weight: 600;
+      margin-bottom: 0;
+    }
+
+    p {
+      color: $grey-9;
+      font-size: $regular-size;
+      margin: 0;
+    }
+  }
+}
