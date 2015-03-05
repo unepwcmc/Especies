@@ -28,11 +28,12 @@ require([
   'views/search_view',
   'views/suggestions_view',
   'views/list_view',
+  'views/detail_view',
   'text!templates/welcome_page_tpl.handlebars',
   'text!templates/list_page_tpl.handlebars',
   'text!templates/detail_page_tpl.handlebars'
 ], function(_, Backbone, Handlebars,
-  Router, SearchView, SuggestionsView, ListView,
+  Router, SearchView, SuggestionsView, ListView, DetailView,
   welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
@@ -73,7 +74,7 @@ require([
       } else if (routeName === 'listSpecies') {
         this.showEspeciesPage();
       } else if (routeName === 'showSpecie') {
-        this.showEspeciesPage();
+        this.showSpeciePage();
       }
     },
 
@@ -104,6 +105,7 @@ require([
       this.currentTemplate = this.templates.detail;
       this.render();
       this.searchModule();
+      new DetailView({ el: '.especie-detail' });
     },
 
     /**
