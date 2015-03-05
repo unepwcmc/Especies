@@ -334,6 +334,6 @@ module.exports = function(grunt) {
    * Deploy with gh-pages
    * command: grunt deploy
    */
-  grunt.registerTask('deploy', ['test', 'build', 'gh-pages']);
+  grunt.registerTask('deploy', ['build', 'gh-pages']);
 
 };
