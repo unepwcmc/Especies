@@ -1,0 +1,87 @@
+<div class="main-details">
+  <table>
+    {{#if scientificName}}
+      <tr>
+        <th>scientific name</th>
+        <td>{{scientificName}}</td>
+        <td class="logos">
+          {{#if gbifId}}
+          <img src="images/logo_gbif.png" alt="gbif {{gbifId}}">
+          {{/if}}
+          {{#if speciesPlusId}}
+          <img src="images/logo_species.png" alt="Species+ {{speciesPlusId}}">
+          {{/if}}
+          {{#if speciesId}}
+          <img src="images/logo_brazil.png" alt="Brazil {{speciesId}}">
+          {{/if}}
+        </td>
+      </tr>
+    {{/if}}
+    {{#if kingdomName}}
+      <tr>
+        <th>kingdom</th>
+        <td>{{kingdomName}}</td>
+      </tr>
+    {{/if}}
+    {{#if phylumName}}
+      <tr>
+        <th>phylum</th>
+        <td>{{phylumName}}</td>
+      </tr>
+    {{/if}}
+    {{#if className}}
+      <tr>
+        <th>class</th>
+        <td>{{className}}</td>
+      </tr>
+    {{/if}}
+    {{#if orderName}}
+      <tr>
+        <th>order</th>
+        <td>{{orderName}}</td>
+      </tr>
+    {{/if}}
+    {{#if familyName}}
+      <tr>
+        <th>family</th>
+        <td>{{familyName}}</td>
+      </tr>
+    {{/if}}
+  </table>
+</div>
+{{#if commonNames}}
+  <div class="common-names">
+    <table>
+      {{#each commonNames}}
+        <tr>
+          <th>common names</th>
+          <td>wolf <span>[en]</span></td>
+        </tr>
+      {{/each}}
+    </table>
+  </div>
+{{/if}}
+<div class="distribution">
+  <table>
+    <tr>
+      <th>distribution</th>
+      <td>Sao Paulo</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Rio de Janeiro</td>
+    </tr>
+  </table>
+</div>
+<div class="description">
+  <table>
+    <tr>
+      <th>description</th>
+      <td>Sao Paulo</td>
+    </tr>
+    <tr>
+      <th></th>
+      <td>Nam porttitor blandit accumsan. Ut vel dictum sem, a pretium dui. In malesuada enim in dolor euismod, id commodo mi consectetur. Curabitur at vestibulum nisi. Nullam vehicula nisi velit. Mauris turpis nisl, molestie ut ipsum et, suscipit vehicula odio. Vestibulum interdum vestibulum felis ac molestie. Praesent aliquet quam et libero dictum, vitae dignissim leo eleifend. In in turpis turpis. Quisque justo turpis, vestibulum non enim nec, tempor mollis mi. Sed vel tristique quam.</td>
+    </tr>
+  </table>
+</div>

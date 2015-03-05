@@ -12,8 +12,16 @@ define([
 
     template: Handlebars.compile(tpl),
 
-    initialize: function() {
-      this.model = new SpecieModel();
+    /**
+     * Initialize details page
+     * @param  {Object} settings
+     * @param  {Number} id
+     */
+    initialize: function(settings, id) {
+      if (!id) {
+        throw 'ID param must be defined.';
+      }
+      this.model = new SpecieModel({ id: id });
       this.showSpecie();
     },
 

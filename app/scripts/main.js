@@ -68,13 +68,13 @@ require([
      * Page dispatcher by route name
      * @param  {String} routeName
      */
-    showPage: function(routeName) {
+    showPage: function(routeName, params) {
       if (routeName === 'welcome') {
         this.showWelcomePage();
       } else if (routeName === 'listSpecies') {
         this.showEspeciesPage();
       } else if (routeName === 'showSpecie') {
-        this.showSpeciePage();
+        this.showSpeciePage(params[0]);
       }
     },
 
@@ -101,11 +101,11 @@ require([
     /**
      * Instance and render modules for detail page
      */
-    showSpeciePage: function() {
+    showSpeciePage: function(id) {
       this.currentTemplate = this.templates.detail;
       this.render();
       this.searchModule();
-      new DetailView({ el: '.especie-detail' });
+      new DetailView({ el: '.especie-detail' }, id);
     },
 
     /**

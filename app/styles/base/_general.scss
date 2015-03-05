@@ -1,10 +1,17 @@
 body {
+<<<<<<< HEAD
   display: flex;
   flex-direction: column;
   align-items: stretch;
   width: 100%;
+=======
+  min-width: 960px;
+>>>>>>> f2943a2b968d096c3331586f5d0641d961dde39e
   background-image: url('../../images/background.jpg');
-  background-size: cover;
+  // background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: $main-font-family;
   color: $text-color-1;
 }
