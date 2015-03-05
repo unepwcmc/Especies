@@ -303,7 +303,7 @@ module.exports = function(grunt) {
    */
   grunt.registerTask('test_serve', [
     'test',
-    'watch:test'
+    'watch'
   ]);
 
   /**

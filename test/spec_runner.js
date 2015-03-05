@@ -40,7 +40,8 @@ require([
   require([
     '../../specs/router_spec',
     '../../specs/models/specie_model_spec',
-    '../../specs/collections/species_collection_spec'
+    '../../specs/collections/species_collection_spec',
+    '../../specs/collections/suggestions_collection_spec'
   ], function() {
 
     (window.mochaPhantomJS) ? mochaPhantomJS.run() : mocha.run();

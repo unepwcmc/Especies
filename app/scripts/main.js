@@ -11,21 +11,27 @@ require.config({
   },
 
   shim: {
-    // foundation: {
-    //   deps: ['jquery'],
-    //   exports: '$'
-    // }
+    foundation: {
+      deps: ['jquery'],
+      exports: '$'
+    }
   }
 
 });
 
 
 require([
+  'underscore',
   'backbone',
+  'handlebars',
   'router',
   'views/search_view',
-  'views/list_view'
-], function(Backbone, Router, SearchView, ListView) {
+  'text!templates/welcome_page_tpl.handlebars',
+  'text!templates/list_page_tpl.handlebars',
+  'text!templates/detail_page_tpl.handlebars'
+], function(_, Backbone, Handlebars,
+  Router, SearchView,
+  welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
 
@@ -36,32 +42,47 @@ require([
 
     el: '#main',
 
+    templates: {
+      welcome: Handlebars.compile(welcomeTpl),
+      list: Handlebars.compile(listTpl),
+      detail: Handlebars.compile(detailTpl)
+    },
+
     initialize: function() {
       this.router = new Router();
-
-      this.search = new SearchView();
-
       this.setListeners();
     },
 
     setListeners: function() {
-      this.listenTo(this.router, 'route', this.checkPage);
-    },
-
-    checkPage: function(nameRouter) {
-      if (nameRouter === 'welcome') {
-        this.currentPageView = new SearchView();
-      } else if (nameRouter === 'listSpecies') {
-        this.currentPageView = new ListView();
-      }
-
-      this.render();
+      this.listenTo(this.router, 'route', this.showPage);
     },
 
     render: function() {
-      this.$el.html( this.currentPageView.render().el );
+      this.$el.html( this.currentTemplate() );
     },
 
+    /**
+     * Page dispatcher by route name
+     * @param  {String} routeName
+     */
+    showPage: function(routeName) {
+      if (routeName === 'welcome') {
+        this.showWelcomePage();
+      }
+    },
+
+    /**
+     * Instance and render modules for welcome page
+     */
+    showWelcomePage: function() {
+      this.currentTemplate = this.templates.welcome;
+      this.render();
+      this.$el.find('.m-search').html( new SearchView().render().el );
+    },
+
+    /**
+     * Start router with HTML5 History API
+     */
     start: function() {
       Backbone.history.start({ pushState: false });
     }
