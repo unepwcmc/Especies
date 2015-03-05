@@ -101,6 +101,7 @@ require([
     showSpeciePage: function() {
       this.currentTemplate = this.templates.detail;
       this.render();
+      this.searchModule();
     },
 
     /**
