@@ -296,16 +296,15 @@ module.exports = function(grunt) {
   grunt.registerTask('serve', [
     'default',
     'connect:server',
-    'watch:scripts',
-    'watch:styles'
+    'watch'
   ]);
 
   /**
    * Create local server to test only
    */
   grunt.registerTask('test_serve', [
-    'connect:test',
-    'watch:test'
+    'test',
+    'watch'
   ]);
 
   /**
