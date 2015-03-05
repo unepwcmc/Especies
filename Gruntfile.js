@@ -304,7 +304,7 @@ module.exports = function(grunt) {
    * Create local server to test only
    */
   grunt.registerTask('test_serve', [
-    'test',
+    'connect:test',
     'watch:test'
   ]);
 

@@ -7,6 +7,8 @@ define([
   'use strict';
 
   var expect = chai.expect;
+  var apiDomain = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
+  var apiUrl = apiDomain + '/api/taxa/';
 
   before(function() {
     this.specie = new SpecieModel({ id: 1 });
@@ -30,7 +32,7 @@ define([
 
       it('should return a correct json data', function(done) {
 
-        this.server.respondWith('GET', '/api/taxa/' + this.specie.id, [
+        this.server.respondWith('GET', apiUrl + this.specie.id, [
           200,
           { 'Content-Type': 'application/json' },
           JSON.stringify({
