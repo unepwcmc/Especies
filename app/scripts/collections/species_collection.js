@@ -7,7 +7,11 @@ define(['backbone'], function(Backbone) {
 
   var SpeciesCollection = Backbone.Collection.extend({
 
-    url: apiUrl
+    url: apiUrl,
+
+    parse: function(data) {
+      return data.species;
+    }
 
   });
 

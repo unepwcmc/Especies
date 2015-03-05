@@ -22,7 +22,6 @@ define([
     },
 
     render: function() {
-      console.log(this.$el)
       this.$el.html(this.template( {
         suggestions: this.collection.toJSON()
       }));

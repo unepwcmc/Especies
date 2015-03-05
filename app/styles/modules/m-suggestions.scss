@@ -1,25 +1,31 @@
 .m-suggestions {
-  position: relative;
-  width: 75%;
-  max-height: 120px;
   position: absolute;
+  width: 75%;
   bottom: 0;
   left: 0;
-  background-color: #fff;
   transform: translatey(100%);
-  border: 1px solid $grey-db;
 
   .suggestions-wrapper {
-    position: absolute;
-    top: $small-margin;
-    bottom: $small-margin;
-    right: $small-margin;
-    left: $small-margin;
+    box-sizing: border-box;
+    width: 100%;
+    padding: $micro-margin;
+    border: 1px solid $grey-db;
+    border-top: 0;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .suggestions-overflow-container {
+    overflow-y: scroll;
+    max-height: 150px;
+
   }
 
   li {
     text-align: left;
     font-style: italic;
     padding: $micro-margin 0;
+    font-size: $text-size;
+    font-weight: 500;
   }
 }
