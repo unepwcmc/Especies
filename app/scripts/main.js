@@ -27,11 +27,12 @@ require([
   'router',
   'views/search_view',
   'views/suggestions_view',
+  'views/list_view',
   'text!templates/welcome_page_tpl.handlebars',
   'text!templates/list_page_tpl.handlebars',
   'text!templates/detail_page_tpl.handlebars'
 ], function(_, Backbone, Handlebars,
-  Router, SearchView, SuggestionsView,
+  Router, SearchView, SuggestionsView, ListView,
   welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
@@ -93,6 +94,7 @@ require([
       this.currentTemplate = this.templates.list;
       this.render();
       this.searchModule();
+      this.$el.find('.especies-list').html( new ListView().render().el );
     },
 
     /**
