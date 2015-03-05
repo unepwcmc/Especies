@@ -20,7 +20,7 @@ define([
     render: function() {
       var data = this.collection.toJSON();
       this.$el.html(this.template({
-        species: data.length === 0 ? data : null
+        species: (this.collection.length > 0) ? data : null
       }));
       return this;
     },

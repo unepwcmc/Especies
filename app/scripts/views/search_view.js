@@ -17,7 +17,7 @@ define([
     },
 
     defaults: {
-      timer: 300
+      timer: 50
     },
 
     template: Handlebars.compile(tpl),

@@ -3,6 +3,7 @@ body {
   background-image: url('../../images/background.jpg');
   // background-size: cover;
   background-position: top;
+  background-attachment: fixed;
   background-repeat: no-repeat;
   font-family: $main-font-family;
   color: $text-color-1;
