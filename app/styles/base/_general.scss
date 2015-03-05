@@ -1,7 +1,7 @@
 body {
   width: 100%;
   background-image: url('../../images/background.jpg');
-  background-size: cover;
+  background-size: contains;
   font-family: $main-font-family;
   color: $text-color-1;
 }
