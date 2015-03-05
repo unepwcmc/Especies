@@ -18,16 +18,20 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template({ species: this.collection.toJSON() }));
+      var data = this.collection.toJSON();
+      this.$el.html(this.template({
+        species: data.length === 0 ? data : null
+      }));
       return this;
     },
 
     showSpecies: function() {
       var query = this.getUrlParam('q');
+      var page = this.getUrlParam('page');
       this.collection.fetch({
         data: {
           scientificName: query,
-          page: 1,
+          page: page || 1,
           perPage: 14
         }
       }).done(_.bind(this.render, this));
