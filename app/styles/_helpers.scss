@@ -50,6 +50,12 @@
   visibility: hidden;
 }
 
+%reset-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 
 /**
  * Mixins
@@ -131,6 +137,7 @@
 }
 
 @mixin arrow ($width, $color, $border-width, $deg) {
+  display: block;
   width: $width;
   height: $width;
   border-top: $border-width solid $color;
