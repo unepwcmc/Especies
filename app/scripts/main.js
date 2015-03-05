@@ -94,7 +94,7 @@ require([
       this.currentTemplate = this.templates.list;
       this.render();
       this.searchModule();
-      this.$el.find('.especies-list').html( new ListView().render().el );
+      new ListView({ el: '.especies-list' });
     },
 
     /**
@@ -110,8 +110,8 @@ require([
      * Search module
      */
     searchModule: function() {
-      this.$el.find('.m-search').html( new SearchView().render().el );
-      this.$el.find('.m-suggestions').html( new SuggestionsView().render().el );
+      new SuggestionsView({ el: '.m-suggestions' });
+      new SearchView({ el: '.m-search' }).render();
     },
 
     /**
