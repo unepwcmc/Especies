@@ -1,0 +1,26 @@
+.m-especies-list {
+  position: relative;
+  max-height: 350px;
+  overflow: scroll;
+  padding: $micro-margin 0;
+
+  &:before {
+    @include fade (red, top);
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+  }
+
+  &:after {
+    @include fade (red, bottom);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 15px;
+  }
+}
