@@ -1,9 +1,19 @@
+table {
+  margin-top: $medium-margin;
+}
+
 th {
   text-transform: uppercase;
   color: $grey-a;
   font-size: $micro-size;
   text-align: right;
-  padding-right: 30px;
+  padding-right: $micro-margin;
+  font-weight: 300;
+}
+
+tr {
+  line-height: 30px;
+  padding: 0 $micro-margin;
 }
 
 td {
