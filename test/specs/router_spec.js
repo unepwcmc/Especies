@@ -21,7 +21,7 @@ define([
       expect(this.router.routes).to.be.an('object');
       expect(this.router.routes['(/)']).to.be.equal('welcome');
       expect(this.router.routes['especies(/)']).to.be.equal('listSpecies');
-      expect(this.router.routes['especies/:id(/)']).to.be.equal('showSpecies');
+      expect(this.router.routes['especies/:id(/)']).to.be.equal('showSpecie');
     });
 
   });

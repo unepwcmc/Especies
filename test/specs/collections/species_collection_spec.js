@@ -32,23 +32,25 @@ define([
         this.server.respondWith('GET', apiUrl, [
           200,
           { 'Content-Type': 'application/json' },
-          JSON.stringify([{
-            'className': null,
-            'distribution': 'Sergipe',
-            'familyName': null,
-            'kingdomName': 'Plants',
-            'orderName': 'Arthoniales',
-            'phylumName': 'Ascomycota',
-            'scientificName': 'Arthonia andamanica '
-          }, {
-            'className': null,
-            'distribution': 'Pernambuco, Rio Grande do Norte, Alagoas',
-            'familyName': null,
-            'kingdomName': 'Plants',
-            'orderName': 'Arthoniales',
-            'phylumName': 'Ascomycota',
-            'scientificName': 'Arthonia bessalis'
-          }])
+          JSON.stringify({
+            species: [{
+              'className': null,
+              'distribution': 'Sergipe',
+              'familyName': null,
+              'kingdomName': 'Plants',
+              'orderName': 'Arthoniales',
+              'phylumName': 'Ascomycota',
+              'scientificName': 'Arthonia andamanica '
+            }, {
+              'className': null,
+              'distribution': 'Pernambuco, Rio Grande do Norte, Alagoas',
+              'familyName': null,
+              'kingdomName': 'Plants',
+              'orderName': 'Arthoniales',
+              'phylumName': 'Ascomycota',
+              'scientificName': 'Arthonia bessalis'
+            }]
+          })
         ]);
 
         this.species
