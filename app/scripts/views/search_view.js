@@ -2,11 +2,8 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'collections/suggestions_collection',
-  'views/suggestions_view',
   'text!templates/search_tpl.handlebars'
-], function(_, Backbone, Handlebars,
-    SuggestionsCollection, SuggestionsView, tpl) {
+], function(_, Backbone, Handlebars, tpl) {
 
   'use strict';
 
@@ -16,11 +13,12 @@ define([
   var SearchView = Backbone.View.extend({
 
     events: {
-      'keyup input': 'showSuggestions'
+      'keyup input': 'onKeyUp',
+      'submit form': 'onSubmit'
     },
 
     defaults: {
-      timer: 300
+      timer: 100
     },
 
     template: Handlebars.compile(tpl),
@@ -28,7 +26,6 @@ define([
     initialize: function(settings) {
       var options = settings && settings.options ? settings.options : {};
       this.options = _.extend({}, this.defaults, options);
-      this.collection = new SuggestionsCollection();
     },
 
     render: function() {
@@ -37,30 +34,30 @@ define([
     },
 
     /**
-     * Showing suggestions from collection and show it
+     * Trigger event with query search on keyup
      * @param  {@event} e
      */
-    showSuggestions: function(e) {
+    onKeyUp: function(e) {
       var self = this;
       if (this.timer) {
         clearTimeout(this.timer);
       }
       this.timer = setTimeout(function() {
-        self.collection
-          .fetch({ data: { query: e.currentTarget.value } })
-          .done(self.renderSuggestionsList);
-        }, this.options.timer);
+        console.log(e.currentTarget.value);
+        self.trigger('search:change', e.currentTarget.value);
+      }, this.options.timer);
     },
 
     /**
-     * Create a list with suggestions and render it
+     * Trigger event with query search on submit
+     * @param  {@event} e
      */
-    renderSuggestionsList: function() {
-      this.suggestions = new SuggestionsView({
-        collection: this.collection
-      });
-      this.$el.find('.m-suggestion-list').html( this.suggestions.render().el );
-      return this;
+    onSubmit: function(e) {
+      e.preventDefault();
+      var params = $(e.currentTarget).serializeArray();
+      var value = _.findWhere(params, {name: 'query'});
+      console.log(value);
+      this.trigger('search:change', value ? value.value : null);
     }
 
   });
