@@ -1,6 +1,7 @@
 body {
   width: 100%;
-  background: url('../../images/background.jpg');
+  background-image: url('../../images/background.jpg');
+  background-size: cover;
   font-family: $main-font-family;
   color: $text-color-1;
 }
@@ -19,4 +20,8 @@ input {
 
 ul {
   @extend %reset-list;
+}
+
+button {
+  @extend %form-field-reset;
 }
