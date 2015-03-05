@@ -31,8 +31,46 @@ require([
    */
   var App = Backbone.View.extend({
 
-    el: document.body,
+    el: '#main',
 
+    templates: {
+      welcome: Handlebars.compile.,
+      list: listTpl,
+      detail: detailTpl
+    },
+
+    initialize: function() {
+      this.router = new Router();
+    },
+
+    setListeners: function() {
+      this.listenTo(this.router, 'routes', this.showPage);
+    },
+
+    render: function() {
+      this.$el.html( this.currentTemplate() );
+    },
+
+    showPage: function(routeName) {
+      if (routeName === 'welcome') {
+        this.showWelcomePage();
+      }
+    },
+
+    /**
+     * Instance and render modules for welcome page
+     */
+    showWelcomePage: function() {
+      this.currentTemplate = this.templates.welcome;
+      this.render();
+      // this.modules.map(function(module) {
+      //   this.
+      // });
+    },
+
+    /**
+     * Start router with HTML5 History API
+     */
     start: function() {
       Backbone.history.start({ pushState: false });
     }
