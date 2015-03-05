@@ -1,7 +1,9 @@
 body {
-  width: 100%;
+  min-width: 960px;
   background-image: url('../../images/background.jpg');
-  background-size: cover;
+  // background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
   font-family: $main-font-family;
   color: $text-color-1;
 }
