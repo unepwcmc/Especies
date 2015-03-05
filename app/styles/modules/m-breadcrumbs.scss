@@ -1,0 +1,20 @@
+.m-breadcrumbs {
+  width: 100%;
+  padding: 50px 0;
+
+  li {
+    position: relative;
+    float: left;
+    font-size: $micro-size;
+    padding-right: 10px;
+
+
+    &:after {
+      content: '';
+      position: absolute;
+      right: 5px;
+      top: 3px;
+      @include arrow (5px, $text-color-2, 1px, 135deg)
+    }
+  }
+}

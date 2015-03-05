@@ -1,8 +1,8 @@
 body {
   width: 100%;
-  // background: url('');
-  background-color: grey;
+  background: url('../../images/background.jpg');
   font-family: $main-font-family;
+  color: $text-color-1;
 }
 
 h1 {
@@ -11,4 +11,8 @@ h1 {
   color: $text-color-2;
   font-size: $h1-font-size;
   line-height: $header-height;
+}
+
+ul {
+  @extend %reset-list;
 }

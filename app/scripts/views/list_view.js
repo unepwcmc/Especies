@@ -1,14 +1,10 @@
 define([
-  'backbone',
-  'handlebars',
-  'text!templates/list_view_template.handlebars'
-  ], function(Backbone, Handlebars, tpl) {
+  'backbone'
+  ], function(Backbone) {
 
   'use strict';
 
   var ListView = Backbone.View.extend({
-
-    template: Handlebars.compile(tpl),
 
     render: function() {
       this.$el.html( this.template() );
