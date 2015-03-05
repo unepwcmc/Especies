@@ -1,5 +1,9 @@
-<ul>
-  {{#each suggestions}}
-    <li><a href="/#especies/{{speciesId}}">{{scientificName}}</a></li>
-  {{/each}}
-</ul>
+<div class="suggestions-wrapper">
+  <div class="suggestions-overflow-container">
+    <ul>
+      {{#each suggestions}}
+        <li><a href="/#especies/{{speciesId}}">{{scientificName}}</a></li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

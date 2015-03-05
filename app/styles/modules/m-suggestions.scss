@@ -1,0 +1,31 @@
+.m-suggestions {
+  position: absolute;
+  width: 75%;
+  bottom: 0;
+  left: 0;
+  transform: translatey(100%);
+
+  .suggestions-wrapper {
+    box-sizing: border-box;
+    width: 100%;
+    padding: $micro-margin;
+    border: 1px solid $grey-db;
+    border-top: 0;
+    background-color: #fff;
+    border-radius: 0 0 5px 5px;
+  }
+
+  .suggestions-overflow-container {
+    overflow-y: scroll;
+    max-height: 150px;
+
+  }
+
+  li {
+    text-align: left;
+    font-style: italic;
+    padding: $micro-margin 0;
+    font-size: $text-size;
+    font-weight: 500;
+  }
+}

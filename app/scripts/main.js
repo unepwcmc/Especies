@@ -95,7 +95,7 @@ require([
       this.currentTemplate = this.templates.list;
       this.render();
       this.searchModule();
-      new ListView({ el: '.especies-list' });
+      new ListView({ el: '.m-especies-list' });
     },
 
     /**
