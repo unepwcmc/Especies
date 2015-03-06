@@ -2,9 +2,9 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'models/specie_model',
-  'text!templates/specie_detail_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, tpl) {
+  'models/species_model',
+  'text!templates/species_detail_tpl.handlebars'
+], function(_, Backbone, Handlebars, SpeciesModel, tpl) {
 
   'use strict';
 
@@ -21,8 +21,8 @@ define([
       if (!id) {
         throw 'ID param must be defined.';
       }
-      this.model = new SpecieModel({ id: id });
-      this.showSpecie();
+      this.model = new SpeciesModel({ id: id });
+      this.showSpecies();
     },
 
     render: function() {
@@ -30,7 +30,7 @@ define([
       return this;
     },
 
-    showSpecie: function() {
+    showSpecies: function() {
       this.model.fetch().done(_.bind(this.render, this));
     }
 

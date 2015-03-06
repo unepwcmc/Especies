@@ -3,8 +3,6 @@ Application to explore the species of Brazil
 
 ## How to install
 
-Layout based on Foundation Framework: [http://foundation.zurb.com/docs/](http://foundation.zurb.com/docs/)
-
 Requirements:
 
 * Node Js 0.10+
