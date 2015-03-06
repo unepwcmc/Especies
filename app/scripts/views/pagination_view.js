@@ -36,8 +36,15 @@ define([
     changePagination: function() {
       var i = this.collection.total / this.options.items;
       var pages = Math.ceil(i);
+
       this.data.pages = pages <= 1 ? null : _.range(1, pages + 1);
       this.data.query = this.getUrlParam('q');
+      this.data.currentPage = Number(this.getUrlParam('page')) || 1;
+      this.data.prevPage = this.data.currentPage <= 1 ?
+        null : this.data.currentPage - 1;
+      this.data.nextPage = this.data.currentPage === pages ?
+        null : this.data.currentPage + 1;
+
       this.render();
     },
 
