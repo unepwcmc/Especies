@@ -52,9 +52,12 @@ define([
 
       this.editionWindowView = new EditionWindowView({
         options: {
-          windowType: windowType
+          windowType: windowType,
+          model: this.model
         }
       });
+      this.listenTo(this.editionWindowView, 'editionWindowView:recordSaved',
+                    this.render);
 
       $('body').append( this.editionWindowView.render().el );
     }
