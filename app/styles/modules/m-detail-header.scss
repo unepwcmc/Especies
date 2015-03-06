@@ -5,6 +5,10 @@
 
   .search-wrapper {
     width: 33%;
+
+    .detail-page & {
+      width: 40%;
+    }
   }
 
   .item-title {

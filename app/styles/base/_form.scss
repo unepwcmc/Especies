@@ -36,4 +36,12 @@ input {
     line-height: 55px;
     color: $grey-9;
   }
+
+  .detail-page & {
+    font-size: $text-size;
+
+    @include placeholder() {
+      font-size: 14px;
+    }
+  }
 }
