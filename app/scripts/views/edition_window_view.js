@@ -65,10 +65,9 @@ define([
     updateDistribution: function(e) {
       e.preventDefault();
       var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
-      var self = this;
       $.each(this.model.attributes.distribution, function() {
         var val = e.target.children[0].children[0].children[0].value;
-        this["region"] = val;
+        this['region'] = val;
         $.ajax({
           url: url+'/api/distribution',
           type: 'PUT',
