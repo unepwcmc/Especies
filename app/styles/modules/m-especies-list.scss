@@ -1,27 +1,7 @@
 .m-especies-list {
-  position: relative;
-  padding: $micro-margin 0;
 
   .especies-list-wrapper {
-    &:before {
-      @include fade ($bg-color-0, bottom);
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 15px;
-    }
 
-    &:after {
-      @include fade ($bg-color-0, top);
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 15px;
-    }
   }
 
 }

@@ -9,7 +9,7 @@ textarea {
   border: 1px solid $grey-ca;
   font-size: $text-size;
   font-weight: 500px;
-  box-shadow: inset 1px 1px 3px rgba(#000, .2);
+  box-shadow: inset 1px 1px 3px rgba(#000, .1);
 
   &:focus {
     border: 1px solid $grey-ca;
@@ -17,6 +17,8 @@ textarea {
 }
 
 input {
+  display: block;
+  float: left;
   box-sizing: border-box;
   width: 75%;
   background-color: $bg-color-0;
@@ -27,7 +29,7 @@ input {
   padding: 0 $small-margin;
   line-height: 55px;
   font-size: $regular-size;
-  box-shadow: inset 1px 1px 3px rgba(#000, .2);
+  box-shadow: inset 1px 1px 3px rgba(#000, .1);
 
   @include placeholder() {
     font-style: italic;
@@ -42,6 +44,7 @@ input {
 
     @include placeholder() {
       font-size: 14px;
+      color: $grey-9;
     }
   }
 }

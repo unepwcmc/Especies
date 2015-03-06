@@ -20,6 +20,10 @@
   background-color: $bg-color-2;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+
+  &.detail-page {
+    padding: $medium-margin $large-margin;
+  }
 }
 
 .l-content {

@@ -2,17 +2,18 @@
   {{#if scientificName}}
     <tr>
       <th>scientific name</th>
-      <td class="first-name">{{scientificName}}</td>
-      <td class="logos">
-        {{#if gbifId}}
-        <img src="images/logo_gbif.png" alt="gbif {{gbifId}}">
-        {{/if}}
-        {{#if speciesPlusId}}
-        <img src="images/logo_species.png" alt="Species+ {{speciesPlusId}}">
-        {{/if}}
-        {{#if speciesId}}
-        <img src="images/logo_brazil.png" alt="Brazil {{speciesId}}">
-        {{/if}}
+      <td class="first-name">{{scientificName}}
+        <span class="logos">
+          {{#if gbifId}}
+          <img src="images/logo_gbif.png" alt="gbif {{gbifId}}">
+          {{/if}}
+          {{#if speciesPlusId}}
+          <img src="images/logo_species.png" alt="Species+ {{speciesPlusId}}">
+          {{/if}}
+          {{#if speciesId}}
+          <img src="images/logo_brazil.png" alt="Brazil {{speciesId}}">
+          {{/if}}
+        </span>
       </td>
     </tr>
   {{/if}}
@@ -47,7 +48,7 @@
     </tr>
   {{/if}}
 
-  <tr></tr>
+  <tr class="separata"></tr>
 
     <tr>
       <th>common names</th>
@@ -61,7 +62,7 @@
       <td class="edition-cell"><button class="btn-edit" data="common-names">suggest changes</button></td>
     </tr>
 
-  <tr></tr>
+  <tr class="separata"></tr>
 
   <tr>
     <th>distribution</th>
@@ -75,11 +76,11 @@
     <td class="edition-cell"><button class="btn-edit" data="distribution">suggest changes</button></td>
   </tr>
 
-  <tr></tr>
+  <tr class="separata"></tr>
 
     <tr>
       <th>description</th>
-      <td>{{description}}</td>
+      <td class="description-cell">{{description}}</td>
       <td class="edition-cell"><button class="btn-edit" data="description">suggest changes</button></td>
     </tr>
 
