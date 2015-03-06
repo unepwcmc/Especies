@@ -1,5 +1,6 @@
 table {
   margin-top: $medium-margin;
+  width: 100%;
 }
 
 th {
@@ -27,4 +28,14 @@ td {
   &.first-name {
     font-weight: 700;
   }
+}
+
+.edition-cell {
+  width: 50%;
+  text-align: right;
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 300;
+
 }

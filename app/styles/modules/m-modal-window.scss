@@ -17,7 +17,13 @@
   }
 
   .m-container {
-    position: relative;
+    @extend %center;
     z-index: 2;
+    padding: $small-margin;
+
+  }
+
+  .wrap {
+    width: auto;
   }
 }
