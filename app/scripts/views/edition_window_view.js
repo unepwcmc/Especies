@@ -13,6 +13,7 @@ define([
 
     events: {
       'click .btn-close': 'closeInfowindow',
+      'click .btn-cancel': 'closeInfowindow',
       'click .modal-background': 'closeInfowindow',
       'submit #update-description': 'updateDescription',
       'submit #update-distribution': 'updateDistribution',
@@ -137,6 +138,11 @@ define([
         var name = this.children[0].value;
         var language = this.children[1].value;
         var region = this.children[2].value;
+
+        if(name === '' && language === '' && region === '') {
+          return true;
+        }
+
         var id;
         if($(this).hasClass('new-item')){
           id = null;
@@ -184,7 +190,7 @@ define([
       var $el = $('.m-existing-item').last().clone();
       $el.attr('id','');
       $el.addClass('new-item');
-      $el.find('.input').val('');
+      $el.children('input').val('');
       $('.existing-items-list').append($el);
     }
 
