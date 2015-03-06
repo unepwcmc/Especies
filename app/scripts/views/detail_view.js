@@ -12,10 +12,6 @@ define([
   var DetailView = Backbone.View.extend({
 
     template: Handlebars.compile(tpl),
-    initialize: function() {
-      // bind template to model changes
-      this.listenTo(this.model, 'save', this.render);
-    },
 
     events: {
       'click .btn-edit':'openEditWindow'
@@ -32,6 +28,7 @@ define([
       }
       this.model = new SpeciesModel({ id: id });
       this.showSpecies();
+      this.listenTo(this.model, 'save', this.render);
     },
 
     render: function() {

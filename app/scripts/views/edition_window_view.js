@@ -56,7 +56,7 @@ define([
 
     updateDescription: function(e) {
       e.preventDefault();
-      this.model.save({"description": $('#editDescription').val()});
+      this.model.save({'description': $('#editDescription').val()});
       this.closeInfowindow();
     }
 
