@@ -15,7 +15,17 @@
     {{#if distribution }}
     <h3>Suggest changes to the distribution</h3>
     <form action="">
-
+      <div class="existing-items-list">
+        <div class="m-existing-item">
+          <input type="text" readonly value="Sao Paulo">
+          <button class="btn-delete">delete</button>
+        </div>
+        <div class="m-existing-item">
+          <input type="text" readonly value="Sao Paulo">
+          <button class="btn-delete">delete</button>
+        </div>
+      </div>
+      <button class="btn-add-new">Add a new item</button>
       <button type="submit" class="btn-send">send</button>
       <button class="btn-cancel">cancel</button>
     </form>
@@ -24,7 +34,7 @@
     {{#if commonNames}}
     <h3>Suggest changes to the common names</h3>
     <form action="">
-      <textarea name="textarea"></textarea>
+      <button class="btn-add-new">Add a new item</button>
       <button type="submit" class="btn-send">send</button>
       <button class="btn-cancel">cancel</button>
     </form>
