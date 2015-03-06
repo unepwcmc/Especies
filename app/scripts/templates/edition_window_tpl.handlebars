@@ -1,0 +1,34 @@
+<div class="m-modal-window">
+  <div class="modal-background"></div>
+  <div class="m-container wrap">
+    <div class="btn-close"></div>
+
+    {{#if description}}
+    <h3>Suggest changes to the description</h3>
+    <form action="">
+      <textarea name="textarea"></textarea>
+      <button type="submit" class="btn-send">send</button>
+      <button class="btn-cancel">cancel</button>
+    </form>
+    {{/if}}
+
+    {{#if distribution }}
+    <h3>Distribution</h3>
+    <form action="">
+      <textarea name="textarea"></textarea>
+      <button type="submit" class="btn-send">send</button>
+      <button class="btn-cancel">cancel</button>
+    </form>
+    {{/if}}
+
+    {{#if commonNames}}
+    <h3>Common names</h3>
+    <form action="">
+      <textarea name="textarea"></textarea>
+      <button type="submit" class="btn-send">send</button>
+      <button class="btn-cancel">cancel</button>
+    </form>
+    {{/if}}
+
+  </div>
+</div>

@@ -9,7 +9,7 @@
   .suggestions-wrapper {
     box-sizing: border-box;
     width: 100%;
-    padding: $micro-margin;
+    padding: $micro-margin 0;
     border: 1px solid $grey-db;
     border-top: 0;
     background-color: #fff;
@@ -25,7 +25,7 @@
   li {
     text-align: left;
     font-style: italic;
-    padding: $micro-margin 0;
+    padding: $micro-margin;
     font-size: $text-size;
     font-weight: 500;
 

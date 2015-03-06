@@ -3,14 +3,19 @@ define([
   'backbone',
   'handlebars',
   'models/species_model',
+  'views/edition_window_view',
   'text!templates/species_detail_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpeciesModel, tpl) {
+], function(_, Backbone, Handlebars, SpeciesModel, EditionWindowView, tpl) {
 
   'use strict';
 
   var DetailView = Backbone.View.extend({
 
     template: Handlebars.compile(tpl),
+
+    events: {
+      'click .btn-edit':'openEditWindow'
+    },
 
     /**
      * Initialize details page
@@ -27,11 +32,31 @@ define([
 
     render: function() {
       this.$el.html(this.template( this.model.attributes ));
+      $('#speciesName').text(this.model.attributes.scientificName);
+      $('#commonNames').text(this.model.attributes.commonNames.join(', '));
       return this;
     },
 
     showSpecies: function() {
       this.model.fetch().done(_.bind(this.render, this));
+    },
+
+    openEditWindow: function(e) {
+      e.preventDefault();
+
+      if (this.editionWindowView) {
+        this.editionWindowView.remove();
+      }
+
+      var windowType = $(e.currentTarget).attr('data');
+
+      this.editionWindowView = new EditionWindowView({
+        options: {
+          windowType: windowType
+        }
+      });
+
+      $('body').append( this.editionWindowView.render().el );
     }
 
   });

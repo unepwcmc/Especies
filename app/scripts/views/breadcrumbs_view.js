@@ -10,7 +10,7 @@ define([
   var BreadcrumbsView = Backbone.View.extend({
 
     initialize: function() {
-      if (!this.collection) {
+      if (!this.model && !this.collection) {
         throw 'collection must be defined.';
       }
       this.setListeners();
@@ -24,19 +24,28 @@ define([
     },
 
     setListeners: function() {
-      this.listenTo(this.collection, 'sync', this.setData);
+      if (this.collection) {
+        this.listenTo(this.collection, 'sync', this.setData);
+      }
+      if (this.model) {
+        this.listenTo(this.model, 'sync', this.setData);
+      }
     },
 
     setData: function() {
       var query = this.getUrlParam('q');
+      var species;
+
       if (query) {
         return this.$el.addClass('is-hidden');
       }
 
-      var species = this.collection.length > 0 ?
-        this.collection.at(0).attributes : {};
-
-      console.log(species);
+      if (this.collection) {
+        species = this.collection.length > 0 ?
+          this.collection.at(0).attributes : {};
+      } else if (this.model) {
+        species = this.model.attributes;
+      }
 
       this.data = {
         breadcrumbs: [{
