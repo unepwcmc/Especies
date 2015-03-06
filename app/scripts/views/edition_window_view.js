@@ -14,8 +14,9 @@ define([
     events: {
       'click .btn-close': 'closeInfowindow',
       'click .modal-background': 'closeInfowindow',
-      'submit #updateDescription': 'updateDescription',
-      'submit #updateDistribution': 'updateDistribution'
+      'submit #update-description': 'updateDescription',
+      'submit #update-distribution': 'updateDistribution',
+      'click #add-new-dist': 'addNewDist'
     },
 
     /**
@@ -84,6 +85,13 @@ define([
       });
       this.trigger('editionWindowView:recordSaved');
       this.closeInfowindow();
+    },
+
+    addNewDist: function(e) {
+      e.preventDefault();
+      var $el = $('.m-existing-item').last().clone();
+      $el.find('input').attr('id','').val('');
+      $('.existing-items-list').append($el);
     }
 
   });
