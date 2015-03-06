@@ -5,7 +5,8 @@
 
     {{#if description}}
     <h3>Suggest changes to the description</h3>
-      <form action="especies/{{species.speciesId}}" method="put">
+      <form id="updateDescription" action="especies/{{species.speciesId}}"
+        method="put">
         <textarea id="description">{{species.description}}</textarea>
         <button class="btn-cancel"></button>
         <button type="submit" class="btn-send" id="updateDescription">send</button>
@@ -14,17 +15,17 @@
 
     {{#if distribution }}
     <h3>Suggest changes to the distribution</h3>
-    <form action="">
+    <form id="updateDistribution" action="">
       <div class="existing-items-list">
-        <div class="m-existing-item">
-          <input type="text" readonly value="Sao Paulo">
-          <button class="btn-delete"></button>
-        </div>
-        <div class="m-existing-item">
-          <input type="text" readonly value="Sao Paulo">
-          <button class="btn-delete"></button>
-        </div>
+        {{#each species.distribution}}
+          <div class="m-existing-item">
+            <input class="input-distributions" id="region-{{id}}" type="text"
+              value="{{region}}">
+            <button class="btn-delete"></button>
+          </div>
+        {{/each}}
       </div>
+
       <button class="btn-add-new">Add a new item</button>
       <button type="submit" class="btn-send">send</button>
       <button class="btn-cancel">cancel</button>

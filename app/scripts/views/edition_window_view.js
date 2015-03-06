@@ -14,7 +14,8 @@ define([
     events: {
       'click .btn-close': 'closeInfowindow',
       'click .modal-background': 'closeInfowindow',
-      'submit': 'updateDescription'
+      'submit #updateDescription': 'updateDescription',
+      'submit #updateDistribution': 'updateDistribution'
     },
 
     /**
@@ -59,6 +60,29 @@ define([
       this.model.save({'description': e.target.children.description.value});
       this.closeInfowindow();
       this.trigger('editionWindowView:recordSaved');
+    },
+
+    updateDistribution: function(e) {
+      e.preventDefault();
+      var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
+      var self = this;
+      _.each($('.input-distributions'), function(el) {
+        $.ajax({
+          url: url+'/api/distribution',
+          type: 'PUT',
+          data: JSON.stringify({
+            id: $(el).attr('id').replace('region-',''),
+            region: e.target.children[0].children[0].children[0].value,
+            speciesId: self.model.attributes.speciesId
+          }),
+          contentType: 'application/json',
+          dataType: 'json',
+          success: function() {
+            self.trigger('editionWindowView:recordSaved');
+          }
+        });
+      });
+      this.closeInfowindow();
     }
 
   });
