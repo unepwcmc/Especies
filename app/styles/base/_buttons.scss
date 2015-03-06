@@ -10,6 +10,11 @@
   background-color: $bg-color-1;
 }
 
+%btn-grey {
+  @extend %btn;
+  background-color: $grey-d9;
+}
+
 .btn-search,
 .btn-send {
   @extend %btn-green;
@@ -46,4 +51,18 @@
   color: $grey-a;
   font-weight: 700;
   line-height: 50px;
+}
+
+.btn-add-new {
+  color: $text-color-2;
+  font-size: $text-size;
+  font-weight: 700;
+  line-height: 50px;
+}
+
+.btn-delete {
+  background-color: $grey-d9;
+  background-image: url(../images/icon_trash.svg);
+  background-size: 20px;
+  background-repeat: no-repeat;
 }

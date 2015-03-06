@@ -14,5 +14,13 @@
     width: 25%;
     text-transform: uppercase;
   }
+
+  .detail-page & {
+    .btn-search {
+      padding: 15px 20px;
+      font-size: 14px;
+      width: 30%;
+    }
+  }
 }
 
