@@ -19,13 +19,13 @@
       <div class="existing-items-list">
         {{#each species.distribution}}
           <div class="m-existing-item">
-            <input class="input-distributions" id="region-{{id}}" type="text"
+            <input id="region-{{id}}" type="text"
               value="{{region}}">
             <button class="btn-delete"></button>
           </div>
         {{else}}
           <div class="m-existing-item">
-            <input class="input-distributions" id="region-" type="text"
+            <input class="new-item" id="region-" type="text"
               value="">
             <button class="btn-delete"></button>
           </div>

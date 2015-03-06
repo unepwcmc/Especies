@@ -65,21 +65,43 @@ define([
 
     updateDistribution: function(e) {
       e.preventDefault();
-      var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
-      $.each(this.model.attributes.distribution, function() {
-        var val = e.target.children[0].children[0].children[0].value;
-        this['region'] = val;
+      var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282' +
+        '/api/distribution';
+      var speciesId = this.model.attributes.speciesId;
+
+      // Add new
+      var self = this;
+      $.each(e.target.children[0].children, function() {
+        var val = this.children[0].value;
+        var id;
+        if($(this.children[0]).hasClass('new-item')){
+          id = null;
+        } else {
+          id = parseInt(this.children[0].id.replace('region-', ''));
+          var item = _.findWhere(self.model.attributes.distribution,
+                                 {id: id});
+          item['region'] = val;
+        }
         $.ajax({
-          url: url+'/api/distribution',
+          url: url,
           type: 'PUT',
           data: JSON.stringify({
-            id: this.id,
+            id: id,
             region: val,
-            speciesId: this.speciesId
+            speciesId: speciesId
           }),
           contentType: 'application/json',
           dataType: 'json',
-          success: function() {
+          success: function(data) {
+            if(!_.findWhere(self.model.attributes.distribution,
+                            {id: data.id})){
+              self.model.attributes.distribution.push({
+                id: data.id,
+                speciesId: data.speciesId,
+                region: data.region
+              });
+              self.trigger('editionWindowView:recordSaved');
+            }
           }
         });
       });
@@ -91,6 +113,7 @@ define([
       e.preventDefault();
       var $el = $('.m-existing-item').last().clone();
       $el.find('input').attr('id','').val('');
+      $el.find('input').addClass('new-item');
       $('.existing-items-list').append($el);
     }
 
