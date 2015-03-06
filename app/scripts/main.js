@@ -29,12 +29,14 @@ require([
   'views/suggestions_view',
   'views/list_view',
   'views/detail_view',
+  'views/pagination_view',
+  'views/breadcrumbs_view',
   'text!templates/welcome_page_tpl.handlebars',
   'text!templates/list_page_tpl.handlebars',
   'text!templates/detail_page_tpl.handlebars'
 ], function(_, Backbone, Handlebars,
-  Router, SearchView, SuggestionsView, ListView, DetailView,
-  welcomeTpl, listTpl, detailTpl) {
+  Router, SearchView, SuggestionsView, ListView, DetailView, PaginationView,
+  BreadcrumbsView, welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
 
@@ -95,7 +97,15 @@ require([
       this.currentTemplate = this.templates.list;
       this.render();
       this.searchModule();
-      new ListView({ el: '.m-especies-list' });
+      var speciesList = new ListView({ el: '.m-especies-list' });
+      new PaginationView({
+        el: '.m-pagination',
+        collection: speciesList.collection
+      });
+      new BreadcrumbsView({
+        el: '.m-breadcrumbs',
+        collection: speciesList.collection
+      });
     },
 
     /**

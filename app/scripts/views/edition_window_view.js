@@ -2,9 +2,8 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'models/specie_model',
   'text!templates/edition_window_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, tpl) {
+], function(_, Backbone, Handlebars, tpl) {
 
   'use strict';
 

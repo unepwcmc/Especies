@@ -2,10 +2,10 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'models/specie_model',
+  'models/species_model',
   'views/edition_window_view',
-  'text!templates/specie_detail_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, EditionWindowView, tpl) {
+  'text!templates/species_detail_tpl.handlebars'
+], function(_, Backbone, Handlebars, SpeciesModel, EditionWindowView, tpl) {
 
   'use strict';
 
@@ -26,8 +26,8 @@ define([
       if (!id) {
         throw 'ID param must be defined.';
       }
-      this.model = new SpecieModel({ id: id });
-      this.showSpecie();
+      this.model = new SpeciesModel({ id: id });
+      this.showSpecies();
     },
 
     render: function() {
@@ -35,20 +35,20 @@ define([
       return this;
     },
 
-    showSpecie: function() {
+    showSpecies: function() {
       this.model.fetch().done(_.bind(this.render, this));
     },
 
     openEditWindow: function(e) {
-      var editionWindowView;
+      e.preventDefault();
 
-      if (editionWindowView) {
-        editionWindowView.remove();
+      if (this.editionWindowView) {
+        this.editionWindowView.remove();
       }
 
       var windowType = $(e.currentTarget).attr('data');
 
-      editionWindowView = new EditionWindowView({
+      this.editionWindowView = new EditionWindowView({
         el: 'body',
         options: {
           windowType: windowType

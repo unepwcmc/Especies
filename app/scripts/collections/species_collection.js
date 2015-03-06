@@ -10,6 +10,7 @@ define(['backbone'], function(Backbone) {
     url: apiUrl,
 
     parse: function(data) {
+      this.total = data.total;
       return data.species;
     }
 
