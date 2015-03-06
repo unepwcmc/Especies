@@ -13,18 +13,38 @@ define([
     template: Handlebars.compile(tpl),
 
     events: {
-      'click .btn-close': 'closeInfowindow'
+      'click .btn-close': 'closeInfowindow',
+      'click .modal-background': 'closeInfowindow'
     },
 
     /**
      * Initialize Editions page
      */
-    initialize: function() {
+    initialize: function(settings) {
+      var options = settings && settings.options ? settings.options : {};
+      this.options = _.extend({}, this.defaults, options);
+
+      this.windowType = this.options.windowType;
+
       this.render();
     },
 
     render: function() {
-      this.$el.append(this.template());
+      var windowType = this.windowType;
+      var templateOptions;
+
+      if (this.windowType === 'description') {
+        templateOptions = {description: true}
+      } else if (this.windowType === 'distribution'){
+        templateOptions = {distribution: true}
+      } else if (this.windowType === 'common-names'){
+        templateOptions = {commonNames: true}
+      }
+
+      this.$el.append(this.template(
+        templateOptions
+      ));
+
       return this;
     },
 

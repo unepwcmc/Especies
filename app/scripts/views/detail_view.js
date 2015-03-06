@@ -39,12 +39,21 @@ define([
       this.model.fetch().done(_.bind(this.render, this));
     },
 
-    openEditWindow: function() {
-      // if (this.editionWindowView) {
-      //   this.editionWindowView.remove();
-      // }
+    openEditWindow: function(e) {
+      var editionWindowView;
 
-      this.editionWindowView = new EditionWindowView({el: 'body'});
+      if (editionWindowView) {
+        editionWindowView.remove();
+      }
+
+      var windowType = $(e.currentTarget).attr('data');
+
+      editionWindowView = new EditionWindowView({
+        el: 'body',
+        options: {
+          windowType: windowType
+        }
+      });
     }
 
   });
