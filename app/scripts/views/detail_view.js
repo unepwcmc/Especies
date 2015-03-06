@@ -3,14 +3,19 @@ define([
   'backbone',
   'handlebars',
   'models/specie_model',
+  'views/edition_window_view',
   'text!templates/specie_detail_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, tpl) {
+], function(_, Backbone, Handlebars, SpecieModel, EditionWindowView, tpl) {
 
   'use strict';
 
   var DetailView = Backbone.View.extend({
 
     template: Handlebars.compile(tpl),
+
+    events: {
+      'click .btn-edit':'openEditWindow'
+    },
 
     /**
      * Initialize details page
@@ -32,6 +37,14 @@ define([
 
     showSpecie: function() {
       this.model.fetch().done(_.bind(this.render, this));
+    },
+
+    openEditWindow: function() {
+      // if (this.editionWindowView) {
+      //   this.editionWindowView.remove();
+      // }
+
+      this.editionWindowView = new EditionWindowView({el: 'body'});
     }
 
   });
