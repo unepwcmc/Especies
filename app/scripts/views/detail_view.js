@@ -28,6 +28,7 @@ define([
       }
       this.model = new SpeciesModel({ id: id });
       this.showSpecies();
+      this.listenTo(this.model, 'save', this.render);
     },
 
     render: function() {
@@ -52,7 +53,8 @@ define([
 
       this.editionWindowView = new EditionWindowView({
         options: {
-          windowType: windowType
+          windowType: windowType,
+          model: this.model
         }
       });
 
