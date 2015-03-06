@@ -6,6 +6,10 @@
   z-index: 1;
   transform: translatey(100%);
 
+  .detail-page & {
+    width: 71%;
+  }
+
   .suggestions-wrapper {
     box-sizing: border-box;
     width: 100%;
