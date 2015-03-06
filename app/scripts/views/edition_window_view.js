@@ -14,7 +14,7 @@ define([
     events: {
       'click .btn-close': 'closeInfowindow',
       'click .modal-background': 'closeInfowindow',
-      'click #updateDescription': 'updateDescription'
+      'submit': 'updateDescription'
     },
 
     /**
@@ -55,8 +55,7 @@ define([
     },
 
     updateDescription: function(e) {
-      e.preventDefault();
-      this.model.save({'description': $('#editDescription').val()});
+      this.model.save({'description': e.target.children.description.value});
       this.closeInfowindow();
     }
 
