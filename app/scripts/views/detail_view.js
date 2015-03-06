@@ -2,10 +2,10 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'models/specie_model',
+  'models/species_model',
   'views/edition_window_view',
-  'text!templates/specie_detail_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, EditionWindowView, tpl) {
+  'text!templates/species_detail_tpl.handlebars'
+], function(_, Backbone, Handlebars, SpeciesModel, EditionWindowView, tpl) {
 
   'use strict';
 
@@ -51,11 +51,12 @@ define([
       var windowType = $(e.currentTarget).attr('data');
 
       this.editionWindowView = new EditionWindowView({
-        el: 'body',
         options: {
           windowType: windowType
         }
       });
+
+      $('body').append( this.editionWindowView.render().el );
     }
 
   });

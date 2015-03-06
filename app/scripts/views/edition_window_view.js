@@ -39,7 +39,7 @@ define([
         templateOptions = {commonNames: true};
       }
 
-      this.$el.append(this.template(
+      this.$el.html(this.template(
         templateOptions
       ));
 
