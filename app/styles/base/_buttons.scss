@@ -26,6 +26,7 @@
   float: right;
   padding-top: 15px;
   padding-bottom: 15px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }
 
 
@@ -49,21 +50,27 @@
   float: right;
   font-size: $text-size;
   color: $grey-a;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 50px;
 }
 
 .btn-add-new {
   color: $text-color-2;
   font-size: $text-size;
-  font-weight: 700;
+  font-weight: 500;
   line-height: 50px;
 }
 
 .btn-delete {
-  background-color: $grey-d9;
+  @extend %btn-grey;
+  box-sizing: border-box;
+  width: 10%;
+  height: 49px;
+  padding: 20px 20px;
   background-image: url(../images/icon_trash.svg);
-  background-size: 20px;
+  background-size: 15px;
   background-repeat: no-repeat;
   background-position: center;
+  border-radius: 5px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.10);
 }

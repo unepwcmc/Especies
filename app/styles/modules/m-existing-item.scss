@@ -2,11 +2,51 @@
   margin-bottom: 5px;
 
   input {
-    line-height: 45px;
+    width: 88%;
+    margin-right: 2%;
+    height: 46px;
+    line-height: 46px;
     font-size: $text-size;
+    border: 1px solid $grey-ca;
+    border-radius: 5px;
+
+    &.name,
+    &.region {
+      width: 31%;
+      margin-right: 2%;
+      border-radius: 5px;
+      border: 1px solid $grey-ca;
+    }
+
+    &.language {
+      width: 22%;
+      margin-right: 2%;
+      border-radius: 5px;
+      border: 1px solid $grey-ca;
+    }
   }
 }
 
 .existing-items-list {
-  margin-bottom: 2px;
+  margin-bottom: 20px;
+}
+
+.labels {
+  margin-bottom: 10px;
+
+  p {
+    margin: 0;
+    display: inline-block;
+    color: $grey-a;
+    font-size: $micro-size;
+
+    &:first-child {
+      width: 32%;
+    }
+
+    &:nth-child(2) {
+      width: 20%;
+    }
+
+  }
 }

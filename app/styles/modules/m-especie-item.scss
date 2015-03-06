@@ -1,9 +1,12 @@
 .m-especie-item {
   border-bottom: 1px solid $bg-color-2;
+  display: -ms-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  font-size: 20px;
+  font-weight: 500;
 
   &:last-child {
     border-bottom: 0;
