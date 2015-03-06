@@ -5,8 +5,8 @@
 
     {{#if description}}
     <h3>Suggest changes to the description</h3>
-      <form action="especies/{{species.speciesId}}" method="post">
-        <textarea id="editDescription" name="textarea">{{species.description}}</textarea>
+      <form action="especies/{{species.speciesId}}" method="put">
+        <textarea id="description">{{species.description}}</textarea>
         <button class="btn-cancel"></button>
         <button type="submit" class="btn-send" id="updateDescription">send</button>
       </form>
