@@ -9,28 +9,6 @@
     flex-direction: row;
   }
 
-  input {
-    box-sizing: border-box;
-    width: 75%;
-    background-color: $bg-color-0;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    border: 1px solid $grey-ca;
-    border-right: 0;
-    padding: 0 $small-margin;
-    line-height: 55px;
-    font-size: $regular-size;
-    box-shadow: inset 1px 1px 3px rgba(#000, .2);
-
-    @include placeholder() {
-      font-style: italic;
-      font-size: $regular-size;
-      font-weight: 300;
-      line-height: 55px;
-      color: $grey-9;
-    }
-  }
-
   .btn-search {
     box-sizing: border-box;
     width: 25%;

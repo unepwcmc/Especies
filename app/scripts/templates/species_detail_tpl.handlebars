@@ -49,39 +49,49 @@
 
   <tr></tr>
 
-  {{#if commonNames}}
-    {{#each commonNames}}
+  {{!-- {{#if commonNames}} --}}
       <tr>
         <th>common names</th>
-        <td>wolf <span>[en]</span></td>
+        <td>
+          <ul>
+          {{#each commonNames}}
+            <li>wolf <span>[en]</span></li>
+          {{/each}}
+          </ul>
+        </td>
+        <td class="edition-cell"><button class="btn-edit" data="common-names">suggest changes</button></td>
       </tr>
-    {{/each}}
+ {{!--  {{/if}} --}}
+
+  <tr></tr>
+
+ {{!--  {{#if distribution}} --}}
+    <tr>
+      <th>distribution</th>
+      <td>
+        <ul>
+        {{#each distribution}}
+          <li>wolf <span>[en]</span></li>
+        {{/each}}
+        </ul>
+      </td>
+      <td class="edition-cell"><button class="btn-edit" data="distribution">suggest changes</button></td>
+    </tr>
+  {{!-- {{/if}} --}}
+
+  <tr></tr>
+
+  {{#if description}}
+    <tr>
+      <th>description</th>
+      <td>{{description}}</td>
+      <td class="edition-cell"><button class="btn-edit" data="description">suggest changes</button></td>
+    </tr>
   {{/if}}
 
-  <tr></tr>
-
-  <tr>
-    <th>distribution</th>
-    <td>Sao Paulo</td>
-  </tr>
-  <tr>
-    <th></th>
-    <td>Rio de Janeiro</td>
-  </tr>
-
-  <tr></tr>
-
-  <tr>
-    <th>description</th>
-    <td>Sao Paulo</td>
-  </tr>
-  <tr>
-    <th></th>
-    <td>{{description}}</td>
-  </tr>
 </table>
 
-<button class="btn-edit" data="description">EDIT description</button>
-<button class="btn-edit" data="distribution">EDIT distribution</button>
-<button class="btn-edit" data="common-names">EDIT common names</button>
+
+
+
 

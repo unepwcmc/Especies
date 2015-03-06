@@ -24,7 +24,12 @@ h1 {
   }
 }
 
-input {
+h3 {
+  font-size: $regular-size;
+}
+
+input,
+textarea {
   @extend %form-field-reset;
 }
 
