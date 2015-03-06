@@ -49,35 +49,31 @@
 
   <tr></tr>
 
-  {{!-- {{#if commonNames}} --}}
-      <tr>
-        <th>common names</th>
-        <td>
-          <ul>
-          {{#each commonNames}}
-            <li>wolf <span>[en]</span></li>
-          {{/each}}
-          </ul>
-        </td>
-        <td class="edition-cell"><button class="btn-edit" data="common-names">suggest changes</button></td>
-      </tr>
- {{!--  {{/if}} --}}
-
-  <tr></tr>
-
- {{!--  {{#if distribution}} --}}
     <tr>
-      <th>distribution</th>
+      <th>common names</th>
       <td>
         <ul>
-        {{#each distribution}}
-          <li>wolf <span>[en]</span></li>
+        {{#each commonNames}}
+          <li>{{name}} <span>[{{language}}]</span></li>
         {{/each}}
         </ul>
       </td>
-      <td class="edition-cell"><button class="btn-edit" data="distribution">suggest changes</button></td>
+      <td class="edition-cell"><button class="btn-edit" data="common-names">suggest changes</button></td>
     </tr>
-  {{!-- {{/if}} --}}
+
+  <tr></tr>
+
+  <tr>
+    <th>distribution</th>
+    <td>
+      <ul>
+      {{#each distribution}}
+        <li>{{region}}</li>
+      {{/each}}
+      </ul>
+    </td>
+    <td class="edition-cell"><button class="btn-edit" data="distribution">suggest changes</button></td>
+  </tr>
 
   <tr></tr>
 
