@@ -66,22 +66,24 @@ define([
       e.preventDefault();
       var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
       var self = this;
-      _.each($('.input-distributions'), function(el) {
+      $.each(this.model.attributes.distribution, function() {
+        var val = e.target.children[0].children[0].children[0].value;
+        this["region"] = val;
         $.ajax({
           url: url+'/api/distribution',
           type: 'PUT',
           data: JSON.stringify({
-            id: $(el).attr('id').replace('region-',''),
-            region: e.target.children[0].children[0].children[0].value,
-            speciesId: self.model.attributes.speciesId
+            id: this.id,
+            region: val,
+            speciesId: this.speciesId
           }),
           contentType: 'application/json',
           dataType: 'json',
           success: function() {
-            self.trigger('editionWindowView:recordSaved');
           }
         });
       });
+      this.trigger('editionWindowView:recordSaved');
       this.closeInfowindow();
     }
 
