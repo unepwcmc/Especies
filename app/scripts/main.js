@@ -75,8 +75,8 @@ require([
         this.showWelcomePage();
       } else if (routeName === 'listSpecies') {
         this.showEspeciesPage();
-      } else if (routeName === 'showSpecie') {
-        this.showSpeciePage(params[0]);
+      } else if (routeName === 'showSpecies') {
+        this.showSpeciesPage(params[0]);
       }
     },
 
@@ -111,11 +111,15 @@ require([
     /**
      * Instance and render modules for detail page
      */
-    showSpeciePage: function(id) {
+    showSpeciesPage: function(id) {
       this.currentTemplate = this.templates.detail;
       this.render();
       this.searchModule();
-      new DetailView({ el: '.especie-detail' }, id);
+      var speciesDetail = new DetailView({ el: '.especie-detail' }, id);
+      new BreadcrumbsView({
+        el: '.m-breadcrumbs',
+        model: speciesDetail.model
+      });
     },
 
     /**
