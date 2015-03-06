@@ -55,6 +55,7 @@ define([
     },
 
     updateDescription: function(e) {
+      e.preventDefault();
       this.model.save({'description': e.target.children.description.value});
       this.closeInfowindow();
       this.trigger('editionWindowView:recordSaved');
