@@ -46,21 +46,30 @@
 
     {{#if commonNames}}
     <h3>Suggest changes to the common names</h3>
-    <form action="">
+    <form id="update-common-names" action="">
       <div class="existing-items-list">
         <div class="labels">
           <p>Common name</p>
           <p>Language</p>
           <p>Region</p>
         </div>
-        <div class="m-existing-item">
-          <input type="text" readonly value="wolf" class="name">
-          <input type="text" readonly value="en" class="language">
-          <input type="text" readonly value="Rio de Janeiro" class="region">
-          <button class="btn-delete"></button>
-        </div>
+        {{#each species.commonNames}}
+          <div class="m-existing-item" id="common-name-{{id}}">
+            <input type="text" value="{{name}}" class="name">
+            <input type="text" value="{{language}}" class="language">
+            <input type="text" value="{{region}}" class="region">
+            <button class="btn-delete"></button>
+          </div>
+        {{else}}
+          <div class="m-existing-item">
+            <input type="text" readonly value="" class="name new-item">
+            <input type="text" readonly value="" class="language">
+            <input type="text" readonly value="" class="region">
+            <button class="btn-delete"></button>
+          </div>
+        {{/each}}
       </div>
-      <button class="btn-add-new">Add a new item</button>
+      <button id="add-new-common" class="btn-add-new">Add a new item</button>
       <button type="submit" class="btn-send">send</button>
       <button class="btn-cancel">Cancel</button>
     </form>
