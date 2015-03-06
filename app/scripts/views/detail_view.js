@@ -32,6 +32,8 @@ define([
 
     render: function() {
       this.$el.html(this.template( this.model.attributes ));
+      $('#speciesName').text(this.model.attributes.scientificName);
+      $('#commonNames').text(this.model.attributes.commonNames.join(', '));
       return this;
     },
 
