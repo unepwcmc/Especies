@@ -114,12 +114,18 @@ require([
     showSpeciesPage: function(id) {
       this.currentTemplate = this.templates.detail;
       this.render();
-      this.searchModule();
       var speciesDetail = new DetailView({ el: '.especie-detail' }, id);
       new BreadcrumbsView({
         el: '.m-breadcrumbs',
         model: speciesDetail.model
       });
+      new SuggestionsView({ el: '.m-suggestions' });
+      new SearchView({
+        el: '.m-search',
+        options: {
+          placeholder: 'Search other species'
+        }
+      }).render();
     },
 
     /**

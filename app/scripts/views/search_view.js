@@ -17,7 +17,8 @@ define([
     },
 
     defaults: {
-      timer: 50
+      timer: 50,
+      placeholder: 'Search by scientific name, taxon or common name'
     },
 
     template: Handlebars.compile(tpl),
@@ -28,7 +29,7 @@ define([
     },
 
     render: function() {
-      this.$el.html( this.template() );
+      this.$el.html( this.template( this.options ) );
       return this;
     },
 

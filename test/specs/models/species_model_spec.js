@@ -11,7 +11,7 @@ define([
   var apiUrl = apiDomain + '/api/taxa/';
 
   before(function() {
-    this.specie = new SpeciesModel({ id: 1 });
+    this.speciesModel = new SpeciesModel({ id: 1 });
     this.server = sinon.fakeServer.create();
   });
 
@@ -22,8 +22,8 @@ define([
   describe('@Specie Model', function() {
 
     it('should be a instance of SpeciesModel', function() {
-      expect(this.specie).to.be.an.instanceOf(SpeciesModel);
-      expect(this.specie.id).to.be.equal(1);
+      expect(this.speciesModel).to.be.an.instanceOf(SpeciesModel);
+      expect(this.speciesModel.id).to.be.equal(1);
     });
 
   });
@@ -32,7 +32,7 @@ define([
 
       it('should return a correct json data', function(done) {
 
-        this.server.respondWith('GET', apiUrl + this.specie.id, [
+        this.server.respondWith('GET', apiUrl + this.speciesModel.id, [
           200,
           { 'Content-Type': 'application/json' },
           JSON.stringify({
@@ -50,7 +50,7 @@ define([
           })
         ]);
 
-        this.specie
+        this.speciesModel
           .fetch({
             success: function(model) {
               expect(model.attributes)

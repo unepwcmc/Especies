@@ -4,7 +4,11 @@
       <li><a href="?q={{query}}&page={{prevPage}}#especies" id="prevPage">&lt;</a></li>
     {{/if}}
     {{#each pages}}
-      <li><a href="?q={{../query}}&page={{this}}#especies">{{this}}</a></li>
+      {{#if current}}
+        <li class="is-current"><a href="?q={{../query}}&page={{name}}#especies">{{name}}</a></li>
+      {{else}}
+        <li><a href="?q={{../query}}&page={{name}}#especies">{{name}}</a></li>
+      {{/if}}
     {{/each}}
     {{#if trunc}}
       <li>...</li>
