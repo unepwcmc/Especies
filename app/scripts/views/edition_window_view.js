@@ -2,9 +2,8 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'models/specie_model',
   'text!templates/edition_window_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, tpl) {
+], function(_, Backbone, Handlebars, tpl) {
 
   'use strict';
 
@@ -30,15 +29,14 @@ define([
     },
 
     render: function() {
-      var windowType = this.windowType;
       var templateOptions;
 
       if (this.windowType === 'description') {
-        templateOptions = {description: true}
+        templateOptions = {description: true};
       } else if (this.windowType === 'distribution'){
-        templateOptions = {distribution: true}
+        templateOptions = {distribution: true};
       } else if (this.windowType === 'common-names'){
-        templateOptions = {commonNames: true}
+        templateOptions = {commonNames: true};
       }
 
       this.$el.append(this.template(

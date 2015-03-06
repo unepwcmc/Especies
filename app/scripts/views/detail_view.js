@@ -7,7 +7,6 @@ define([
   'text!templates/specie_detail_tpl.handlebars'
 ], function(_, Backbone, Handlebars, SpecieModel, EditionWindowView, tpl) {
 
-
   'use strict';
 
   var DetailView = Backbone.View.extend({
@@ -33,6 +32,8 @@ define([
 
     render: function() {
       this.$el.html(this.template( this.model.attributes ));
+      $('#speciesName').text(this.model.attributes.scientificName);
+      $('#commonNames').text(this.model.attributes.commonNames.join(', '));
       return this;
     },
 
@@ -41,15 +42,15 @@ define([
     },
 
     openEditWindow: function(e) {
-      var editionWindowView;
+      e.preventDefault();
 
-      if (editionWindowView) {
-        editionWindowView.remove();
+      if (this.editionWindowView) {
+        this.editionWindowView.remove();
       }
 
       var windowType = $(e.currentTarget).attr('data');
 
-      editionWindowView = new EditionWindowView({
+      this.editionWindowView = new EditionWindowView({
         el: 'body',
         options: {
           windowType: windowType
