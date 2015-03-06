@@ -41,6 +41,9 @@ define([
       if (e.keyCode === 38 || e.keyCode === 40) {
         this.$el.find('input').blur();
         return;
+      } else if (e.keyCode == 32) {
+        this.$el.find('button').click();
+        return;
       }
       if (this.timer) {
         clearTimeout(this.timer);
