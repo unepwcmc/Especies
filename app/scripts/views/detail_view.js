@@ -28,7 +28,6 @@ define([
       }
       this.model = new SpeciesModel({ id: id });
       this.showSpecies();
-      this.listenTo(this.model, 'save', this.render);
     },
 
     render: function() {
@@ -57,6 +56,8 @@ define([
           model: this.model
         }
       });
+      this.listenTo(this.editionWindowView, 'editionWindowView:recordSaved',
+                    this.render);
 
       $('body').append( this.editionWindowView.render().el );
     }
