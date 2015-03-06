@@ -37,9 +37,8 @@ define([
     changePagination: function() {
       var i = this.collection.total / this.options.items;
       var pages = Math.ceil(i);
+      var self = this;
 
-      this.data.pages = pages <= 1 ?
-        null : _.first(_.range(1, pages + 1), this.options.limit);
       this.data.query = this.getUrlParam('q');
       this.data.currentPage = Number(this.getUrlParam('page')) || 1;
       this.data.prevPage = this.data.currentPage <= 1 ?
@@ -50,6 +49,14 @@ define([
       if (pages > this.options.limit) {
         this.data.trunc = true;
       }
+
+      var pagesArr = _.first(_.range(1, pages + 1), this.options.limit);
+
+      var pagesData = _.map(pagesArr, function(page) {
+        return { name: page, current: (page === self.data.currentPage) };
+      });
+
+      this.data.pages = pagesData.length <= 1 ? null : pagesData;
 
       this.render();
     },

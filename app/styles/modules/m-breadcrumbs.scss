@@ -3,6 +3,7 @@
   padding: 50px 0;
 
   li {
+    text-transform: uppercase;
     position: relative;
     float: left;
     font-size: $micro-size;
@@ -21,5 +22,9 @@
         display: none;
       }
     }
+  }
+
+  a {
+    text-transform: uppercase;
   }
 }
