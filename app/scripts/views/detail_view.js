@@ -2,10 +2,10 @@ define([
   'underscore',
   'backbone',
   'handlebars',
-  'models/specie_model',
+  'models/species_model',
   'views/edition_window_view',
-  'text!templates/specie_detail_tpl.handlebars'
-], function(_, Backbone, Handlebars, SpecieModel, EditionWindowView, tpl) {
+  'text!templates/species_detail_tpl.handlebars'
+], function(_, Backbone, Handlebars, SpeciesModel, EditionWindowView, tpl) {
 
   'use strict';
 
