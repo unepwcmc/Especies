@@ -30,7 +30,7 @@
 
   #nextPage,
   #prevPage {
-    display: block;
+    display: flex;
     height: 30px;
     width: 30px;
     padding: 0;
@@ -39,10 +39,22 @@
     border-radius: 50%;
     background-color: $text-color-2;
     color: $text-color-0;
+    font-size: 0;
   }
 
-  // #nextPage:before {
-  //   content: '';
-  //   @include
-  // }
+  #nextPage:before {
+    content: '';
+    margin: auto;
+    position: relative;
+    left: -2px;
+    @include arrow (10px, $text-color-0, 2px, 135deg);
+  }
+
+  #prevPage:before {
+    content: '';
+    margin: auto;
+    position: relative;
+    left: 2px;
+    @include arrow (10px, $text-color-0, 2px, -45deg);
+  }
 }
