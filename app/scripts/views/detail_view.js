@@ -12,6 +12,10 @@ define([
   var DetailView = Backbone.View.extend({
 
     template: Handlebars.compile(tpl),
+    initialize: function() {
+      // bind template to model changes
+      this.listenTo(this.model, 'save', this.render);
+    },
 
     events: {
       'click .btn-edit':'openEditWindow'
@@ -52,7 +56,8 @@ define([
 
       this.editionWindowView = new EditionWindowView({
         options: {
-          windowType: windowType
+          windowType: windowType,
+          model: this.model
         }
       });
 

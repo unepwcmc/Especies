@@ -13,7 +13,8 @@ define([
 
     events: {
       'click .btn-close': 'closeInfowindow',
-      'click .modal-background': 'closeInfowindow'
+      'click .modal-background': 'closeInfowindow',
+      'click #updateDescription': 'updateDescription'
     },
 
     /**
@@ -24,6 +25,7 @@ define([
       this.options = _.extend({}, this.defaults, options);
 
       this.windowType = this.options.windowType;
+      this.model = this.options.model;
 
       this.render();
     },
@@ -39,7 +41,9 @@ define([
         templateOptions = {commonNames: true};
       }
 
-      this.$el.html(this.template(
+      templateOptions['species'] = this.model.attributes;
+
+      this.$el.append(this.template(
         templateOptions
       ));
 
@@ -48,6 +52,12 @@ define([
 
     closeInfowindow: function() {
       $('.m-modal-window').remove();
+    },
+
+    updateDescription: function(e) {
+      e.preventDefault();
+      this.model.save({"description": $('#editDescription').val()});
+      this.closeInfowindow();
     }
 
   });
