@@ -35,7 +35,7 @@ define([
         perPage: 14
       };
       if (query && !rank) {
-        params.scientificName = query;
+        params.scientificName = query || ' ';
       } else if (rank) {
         params.rank = rank;
         params.scientificName = name;
