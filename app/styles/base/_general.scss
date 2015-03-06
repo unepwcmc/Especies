@@ -1,6 +1,13 @@
 body {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  background: url('../../images/background.jpg');
+  min-width: 960px;
+  background-image: url('../../images/background.jpg');
+  background-size: cover;
+  background-position: top;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   font-family: $main-font-family;
   color: $text-color-1;
 }
@@ -11,6 +18,10 @@ h1 {
   color: $text-color-2;
   font-size: $h1-font-size;
   line-height: $header-height;
+
+  a {
+    color: $text-color-2;
+  }
 }
 
 input {
@@ -19,4 +30,18 @@ input {
 
 ul {
   @extend %reset-list;
+}
+
+button {
+  @extend %form-field-reset;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color-1;
+
+  &:focus {
+    outline: 0;
+    border: 0;
+  }
 }

@@ -11,15 +11,17 @@ $grid-gutter-width: 1%;
 
 // Margins
 $large-margin: 80px;
-$medium-margin: 20px;
-$small-margin: 10px;
+$medium-margin: 40px;
+$small-margin: 20px;
+$micro-margin: 10px;
 
 // Fonts
 $main-font-family: 'Raleway';
 
 // Font-sizes
-$h1-font-size: 32px;
-$regular-size: 20px;
+$h1-font-size: 24px;
+$h2-font-size: 32px;
+$regular-size: 18px;
 $micro-size: 12px;
 $text-size: 14px;
 
@@ -27,6 +29,10 @@ $text-size: 14px;
 $white: #fff;
 $gray-dark: #333;
 $grey-light: #CDCDCD;
+$grey-ca: #CACACA;
+$grey-db: #DBDBDB;
+$grey-9: #999;
+$grey-a: #aaa;
 $grey-extra-light: #F1F1F1;
 $green: #AEC139;
 
@@ -43,4 +49,4 @@ $text-color-3: $grey-light;
 
 
 
-$header-height: 40px;
+$header-height: 60px;

@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     connect: {
       options: {
         port: 8000,
-        hostname: 'localhost'
+        hostname: '0.0.0.0'
       },
       server: {
         options: {
@@ -111,9 +111,19 @@ module.exports = function(grunt) {
         files: {
           '<%= config.dist %>/styles/main.css': [
             '.tmp/styles/main.css',
-            'bower_components/leaflet-dist/leaflet.css'
+            'bower_components/normalize-css/normalize.css'
           ]
         }
+      }
+    },
+
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions']
+      },
+      compile: {
+        src: '.tmp/styles/main.css',
+        dest: '.tmp/styles/main.css'
       }
     },
 
@@ -172,7 +182,7 @@ module.exports = function(grunt) {
       options: {
         assetsDirs: [
           '<%= config.dist %>',
-          '<%= config.dist %>/assets',
+          '<%= config.dist %>/images',
           '<%= config.dist %>/styles'
         ]
       },
@@ -185,9 +195,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/assets',
+          cwd: '<%= config.app %>/images',
           src: '{,*/}*.{gif,jpeg,jpg,png}',
-          dest: '<%= config.dist %>/assets'
+          dest: '<%= config.dist %>/images'
         }]
       }
     },
@@ -196,9 +206,9 @@ module.exports = function(grunt) {
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/assets',
+          cwd: '<%= config.app %>/images',
           src: '{,*/}*.svg',
-          dest: '<%= config.dist %>/assets'
+          dest: '<%= config.dist %>/images'
         }]
       }
     },
@@ -230,13 +240,14 @@ module.exports = function(grunt) {
     rev: {
       dist: {
         files: {
-          src: [
-            '<%= config.dist %>/scripts/{,*/}*.js',
-            '<%= config.dist %>/styles/{,*/}*.css',
-            '<%= config.dist %>/images/{,*/}*.*',
-            '<%= config.dist %>/styles/fonts/{,*/}*.*',
-            '<%= config.dist %>/*.{ico,png}'
-          ]
+          // src: [
+          //   '<%= config.dist %>/scripts/{,*/}*.js',
+          //   '<%= config.dist %>/styles/{,*/}*.css',
+          //   '<%= config.dist %>/images/{,*/}*.*',
+          //   '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          //   '<%= config.dist %>/*.{ico,png}'
+          // ]
+          src: ['<%= config.dist %>/**/*.{js,css,png,jpg}']
         }
       }
     },
@@ -249,7 +260,7 @@ module.exports = function(grunt) {
       },
       styles: {
         files: '<%= config.app %>/styles/{,*/}*.scss',
-        tasks: ['sass']
+        tasks: ['sass', 'autoprefixer']
       }
     },
 
@@ -309,12 +320,12 @@ module.exports = function(grunt) {
     'useminPrepare',
     'requirejs',
     'sass',
+    'autoprefixer',
     'imagemin',
     'svgmin',
     'copy:dist',
     'concat:generated',
     'cssmin:compile',
-    'rev',
     'usemin',
     'htmlmin'
   ]);
@@ -323,6 +334,6 @@ module.exports = function(grunt) {
    * Deploy with gh-pages
    * command: grunt deploy
    */
-  grunt.registerTask('deploy', ['test', 'build', 'gh-pages']);
+  grunt.registerTask('deploy', ['build', 'gh-pages']);
 
 };

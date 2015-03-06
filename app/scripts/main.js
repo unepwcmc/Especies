@@ -27,11 +27,13 @@ require([
   'router',
   'views/search_view',
   'views/suggestions_view',
+  'views/list_view',
+  'views/detail_view',
   'text!templates/welcome_page_tpl.handlebars',
   'text!templates/list_page_tpl.handlebars',
   'text!templates/detail_page_tpl.handlebars'
 ], function(_, Backbone, Handlebars,
-  Router, SearchView, SuggestionsView,
+  Router, SearchView, SuggestionsView, ListView, DetailView,
   welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
@@ -66,13 +68,13 @@ require([
      * Page dispatcher by route name
      * @param  {String} routeName
      */
-    showPage: function(routeName) {
+    showPage: function(routeName, params) {
       if (routeName === 'welcome') {
         this.showWelcomePage();
       } else if (routeName === 'listSpecies') {
         this.showEspeciesPage();
       } else if (routeName === 'showSpecie') {
-        this.showEspeciesPage();
+        this.showSpeciePage(params[0]);
       }
     },
 
@@ -93,22 +95,25 @@ require([
       this.currentTemplate = this.templates.list;
       this.render();
       this.searchModule();
+      new ListView({ el: '.m-especies-list' });
     },
 
     /**
      * Instance and render modules for detail page
      */
-    showSpeciePage: function() {
+    showSpeciePage: function(id) {
       this.currentTemplate = this.templates.detail;
       this.render();
+      this.searchModule();
+      new DetailView({ el: '.especie-detail' }, id);
     },
 
     /**
      * Search module
      */
     searchModule: function() {
-      this.$el.find('.m-search').html( new SearchView().render().el );
-      this.$el.find('.m-suggestions').html( new SuggestionsView().render().el );
+      new SuggestionsView({ el: '.m-suggestions' });
+      new SearchView({ el: '.m-search' }).render();
     },
 
     /**

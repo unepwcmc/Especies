@@ -1,13 +1,22 @@
 .l-header {
   height: $header-height;
-  background-color: $bg-color-0;
+  background-color: rgba($bg-color-0, .7);
 }
 
 .l-main {
+  display: flex;
+  padding: $large-margin;
+  // position: absolute;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // right: 0;
 }
 
 .l-article-header {
   width: 100%;
+  box-sizing: border-box;
+  padding: $small-margin $large-margin;
   background-color: $bg-color-2;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
