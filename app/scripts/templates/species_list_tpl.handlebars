@@ -1,12 +1,26 @@
-<ul>
-  {{#each species}}
-    <li class="m-especie-item">
-      <p class="especie-name">{{scientificName}} <span>- Wolf, Lobo</span></p>
-      <div class="data-origin">
-        <img src="images/logo_gbif.png" alt="gbif">
-        <img src="images/logo_species.png" alt="Species+">
-        <img src="images/logo_brazil.png" alt="Brazil">
-      </div>
-    </li>
-  {{/each}}
-</ul>
+<div class="especies-list-wrapper">
+  {{#if species}}
+    <ul>
+      {{#each species}}
+        <li class="m-especie-item">
+          <p class="especie-name">
+            <a href="/#especies/{{speciesId}}">{{scientificName}}{{#if commonNames}}<span> - {{commonNames}}</span>{{/if}}</a>
+          </p>
+          <div class="data-origin">
+            {{#if gbifId}}
+            <img src="images/logo_gbif.png" alt="gbif {{gbifId}}">
+            {{/if}}
+            {{#if speciesPlusId}}
+            <img src="images/logo_species.png" alt="Species+ {{speciesPlusId}}">
+            {{/if}}
+            {{#if speciesId}}
+            <img src="images/logo_brazil.png" alt="Brazil {{speciesId}}">
+            {{/if}}
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p>No results.</p>
+  {{/if}}
+</div>

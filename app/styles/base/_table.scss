@@ -1,0 +1,41 @@
+table {
+  margin-top: $medium-margin;
+  width: 100%;
+}
+
+th {
+  text-transform: uppercase;
+  color: $grey-a;
+  font-size: $micro-size;
+  text-align: right;
+  padding-right: $micro-margin;
+  font-weight: 300;
+}
+
+tr {
+  line-height: 30px;
+  padding: 0 $micro-margin;
+}
+
+td {
+  font-size: $text-size;
+  font-style: italic;
+
+  img {
+    margin-left: $micro-margin;
+  }
+
+  &.first-name {
+    font-weight: 700;
+  }
+}
+
+.edition-cell {
+  width: 50%;
+  text-align: right;
+  text-transform: uppercase;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: 300;
+
+}

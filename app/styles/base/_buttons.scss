@@ -10,6 +10,40 @@
   background-color: $bg-color-1;
 }
 
-.btn-search {
+.btn-search,
+.btn-send {
   @extend %btn-green;
+}
+
+.btn-send {
+  border-radius: 5px;
+  text-transform: uppercase;
+  float: right;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+
+.btn-edit {
+  text-transform: uppercase;
+  padding-left: 20px;
+  background: url(../images/icon_edit.svg) no-repeat left;
+  background-size: 15px;
+}
+
+.btn-close {
+  float: right;
+  background: url(../images/close.svg) no-repeat center;
+  background-size: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.btn-cancel {
+  float: right;
+  font-size: $text-size;
+  color: $grey-a;
+  font-weight: 700;
+  line-height: 50px;
 }

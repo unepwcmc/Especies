@@ -28,12 +28,15 @@ require([
   'views/search_view',
   'views/suggestions_view',
   'views/list_view',
+  'views/detail_view',
+  'views/pagination_view',
+  'views/breadcrumbs_view',
   'text!templates/welcome_page_tpl.handlebars',
   'text!templates/list_page_tpl.handlebars',
   'text!templates/detail_page_tpl.handlebars'
 ], function(_, Backbone, Handlebars,
-  Router, SearchView, SuggestionsView, ListView,
-  welcomeTpl, listTpl, detailTpl) {
+  Router, SearchView, SuggestionsView, ListView, DetailView, PaginationView,
+  BreadcrumbsView, welcomeTpl, listTpl, detailTpl) {
 
   'use strict';
 
@@ -67,13 +70,13 @@ require([
      * Page dispatcher by route name
      * @param  {String} routeName
      */
-    showPage: function(routeName) {
+    showPage: function(routeName, params) {
       if (routeName === 'welcome') {
         this.showWelcomePage();
       } else if (routeName === 'listSpecies') {
         this.showEspeciesPage();
-      } else if (routeName === 'showSpecie') {
-        this.showEspeciesPage();
+      } else if (routeName === 'showSpecies') {
+        this.showSpeciesPage(params[0]);
       }
     },
 
@@ -94,16 +97,29 @@ require([
       this.currentTemplate = this.templates.list;
       this.render();
       this.searchModule();
-      new ListView({ el: '.especies-list' });
+      var speciesList = new ListView({ el: '.m-especies-list' });
+      new PaginationView({
+        el: '.m-pagination',
+        collection: speciesList.collection
+      });
+      new BreadcrumbsView({
+        el: '.m-breadcrumbs',
+        collection: speciesList.collection
+      });
     },
 
     /**
      * Instance and render modules for detail page
      */
-    showSpeciePage: function() {
+    showSpeciesPage: function(id) {
       this.currentTemplate = this.templates.detail;
       this.render();
       this.searchModule();
+      var speciesDetail = new DetailView({ el: '.especie-detail' }, id);
+      new BreadcrumbsView({
+        el: '.m-breadcrumbs',
+        model: speciesDetail.model
+      });
     },
 
     /**

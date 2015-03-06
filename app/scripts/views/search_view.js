@@ -17,7 +17,7 @@ define([
     },
 
     defaults: {
-      timer: 300
+      timer: 50
     },
 
     template: Handlebars.compile(tpl),
@@ -37,6 +37,10 @@ define([
      * @param  {@event} e
      */
     onKeyUp: function(e) {
+      if (e.keyCode === 38 || e.keyCode === 40) {
+        this.$el.find('input').blur();
+        return;
+      }
       if (this.timer) {
         clearTimeout(this.timer);
       }
