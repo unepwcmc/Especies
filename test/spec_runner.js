@@ -39,7 +39,7 @@ require([
 
   require([
     '../../specs/router_spec',
-    '../../specs/models/specie_model_spec',
+    '../../specs/models/species_model_spec',
     '../../specs/collections/species_collection_spec',
     '../../specs/collections/suggestions_collection_spec',
     '../../specs/views/search_view_spec',

@@ -29,6 +29,7 @@ define([
       var query = this.getUrlParam('q');
       var page = this.getUrlParam('page');
       var rank = this.getUrlParam('rank');
+      var name = this.getUrlParam('name');
       var params = {
         page: page || 1,
         perPage: 14
@@ -37,6 +38,7 @@ define([
         params.scientificName = query;
       } else if (rank) {
         params.rank = rank;
+        params.scientificName = name;
       }
       this.collection.fetch({
         data: params

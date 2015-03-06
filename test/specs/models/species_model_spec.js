@@ -1,8 +1,8 @@
 define([
   'chai',
   'sinon',
-  'models/specie_model'
-], function(chai, sinon, SpecieModel) {
+  'models/species_model'
+], function(chai, sinon, SpeciesModel) {
 
   'use strict';
 
@@ -11,7 +11,7 @@ define([
   var apiUrl = apiDomain + '/api/taxa/';
 
   before(function() {
-    this.specie = new SpecieModel({ id: 1 });
+    this.specie = new SpeciesModel({ id: 1 });
     this.server = sinon.fakeServer.create();
   });
 
@@ -21,8 +21,8 @@ define([
 
   describe('@Specie Model', function() {
 
-    it('should be a instance of SpecieModel', function() {
-      expect(this.specie).to.be.an.instanceOf(SpecieModel);
+    it('should be a instance of SpeciesModel', function() {
+      expect(this.specie).to.be.an.instanceOf(SpeciesModel);
       expect(this.specie.id).to.be.equal(1);
     });
 

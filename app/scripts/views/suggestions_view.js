@@ -14,6 +14,7 @@ define([
     template: Handlebars.compile(tpl),
 
     initialize: function() {
+      this.counter = -1;
       this.collection = new SuggestionsCollection();
       this.setListeners();
     },
@@ -28,6 +29,7 @@ define([
       this.$el.html(this.template( {
         suggestions: (this.collection.length > 0) ? data : null
       }));
+      this.counter = -1;
       return this;
     },
 
@@ -50,14 +52,21 @@ define([
     },
 
     onKeyUp: function(e) {
+      // when user press enter key redirect him to detail page
+      if (e.keyCode === 13) {
+        location.href = this.$el.find('.is-current a').attr('href');
+        return;
+      }
       // up arrow key
       if (e.keyCode === 38) {
-        // TODO: When user press up arrow key
+        this.counter = this.counter - 1;
       }
       // down arrow key
       if (e.keyCode === 40) {
-        // TODO: When user press down arrow key
+        this.counter = this.counter + 1;
       }
+      var listElements = this.$el.find('li').removeClass('is-current');
+      $(listElements.get(this.counter)).addClass('is-current').focus();
     }
 
   });

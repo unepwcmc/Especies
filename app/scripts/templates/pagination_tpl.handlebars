@@ -1,0 +1,16 @@
+{{#if pages}}
+  <ul>
+    {{#if prevPage}}
+      <li><a href="?q={{query}}&page={{prevPage}}#especies" id="prevPage">&lt;</a></li>
+    {{/if}}
+    {{#each pages}}
+      <li><a href="?q={{../query}}&page={{this}}#especies">{{this}}</a></li>
+    {{/each}}
+    {{#if trunc}}
+      <li>...</li>
+    {{/if}}
+    {{#if nextPage}}
+      <li><a href="?q={{query}}&page={{nextPage}}#especies" id="nextPage">&gt;</a></li>
+    {{/if}}
+  </ul>
+{{/if}}
