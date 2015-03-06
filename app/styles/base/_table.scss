@@ -20,6 +20,10 @@ td {
   font-size: $text-size;
   font-style: italic;
 
+  img {
+    margin-left: $micro-margin;
+  }
+
   &.first-name {
     font-weight: 700;
   }
