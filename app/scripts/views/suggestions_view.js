@@ -21,7 +21,7 @@ define([
 
     setListeners: function() {
       Backbone.Events.on('search:change', this.showSuggestions, this);
-      $(document).on('keyup', _.bind(this.onKeyUp, this));
+      // $(document).on('keyup', _.bind(this.onKeyUp, this));
     },
 
     render: function() {
@@ -54,7 +54,10 @@ define([
     onKeyUp: function(e) {
       // when user press enter key redirect him to detail page
       if (e.keyCode === 13) {
-        location.href = this.$el.find('.is-current a').attr('href');
+        var currentElement = this.$el.find('.is-current:focus a');
+        if (currentElement.length > 0) {
+          location.href = currentElement.attr('href');
+        }
         return;
       }
       // up arrow key

@@ -40,8 +40,6 @@ define([
     onKeyUp: function(e) {
       if (e.keyCode === 38 || e.keyCode === 40) {
         return this.$el.find('input').blur();
-      } else if (e.keyCode === 32) {
-        return;
       }
       if (this.timer) {
         clearTimeout(this.timer);
