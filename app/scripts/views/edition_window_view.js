@@ -18,6 +18,7 @@ define([
       'submit #update-description': 'updateDescription',
       'submit #update-distribution': 'updateDistribution',
       'click #add-new-dist': 'addNewDist',
+      'click .common-delete': 'deleteCommon',
       'submit #update-common-names': 'updateCommonNames',
       'click #add-new-common': 'addNewCommon'
     },
@@ -31,6 +32,9 @@ define([
 
       this.windowType = this.options.windowType;
       this.model = this.options.model;
+
+    //this.api = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
+      this.api = 'http://localhost:8282';
 
       this.render();
     },
@@ -68,8 +72,7 @@ define([
 
     updateDistribution: function(e) {
       e.preventDefault();
-      var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282' +
-        '/api/distribution';
+      var url =  this.api + '/api/distribution';
       var speciesId = this.model.attributes.speciesId;
 
       // Add new
@@ -125,8 +128,7 @@ define([
 
     updateCommonNames: function(e) {
       e.preventDefault();
-      var url = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282' +
-        '/api/commonNames';
+      var url = this.api + '/api/commonNames';
       var speciesId = this.model.attributes.speciesId;
 
       // Add new
@@ -192,6 +194,23 @@ define([
       $el.addClass('new-item');
       $el.children('input').val('');
       $('.existing-items-list').append($el);
+    },
+
+    deleteCommon: function(e) {
+      e.preventDefault();
+      var id = e.target.id.replace('delete-name-','');
+      var self = this;
+      $.ajax({
+        url: this.api+'/api/commonNames/'+id,
+        contentType: 'application/json',
+        dataType: 'json',
+        type: 'DELETE',
+        success: function() {
+          self.model.attributes.commonNames.remove({id: id});
+          self.trigger('editionWindowView:recordSaved');
+          $(e.target).parent().remove();
+        }
+      });
     }
 
   });
