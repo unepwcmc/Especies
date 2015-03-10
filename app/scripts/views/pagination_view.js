@@ -12,7 +12,7 @@ define([
     template: Handlebars.compile(tpl),
 
     defaults: {
-      items: 14,
+      items: 20,
       limit: 10
     },
 
@@ -50,7 +50,12 @@ define([
         this.data.trunc = true;
       }
 
-      var pagesArr = _.first(_.range(1, pages + 1), this.options.limit);
+      console.log(pages);
+      var bottomPage = this.data.currentPage > 10 ?
+        this.data.currentPage - (this.options.limit/2) :
+        1;
+      var pagesArr = _.first(_.range(bottomPage,
+                                     pages + 1), this.options.limit);
 
       var pagesData = _.map(pagesArr, function(page) {
         return { name: page, current: (page === self.data.currentPage) };

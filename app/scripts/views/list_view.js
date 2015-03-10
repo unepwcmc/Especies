@@ -32,7 +32,7 @@ define([
       var name = this.getUrlParam('name');
       var params = {
         page: page || 1,
-        perPage: 14
+        perPage: 20
       };
       if (query && !rank) {
         params.scientificName = query || ' ';
