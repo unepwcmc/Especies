@@ -33,10 +33,7 @@ define([
       this.windowType = this.options.windowType;
       this.model = this.options.model;
 
-    //this.api = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
-      this.api = 'http://localhost:8282';
-
-      this.render();
+      this.api = 'http://ec2-54-94-97-96.sa-east-1.compute.amazonaws.com:8282';
     },
 
     render: function() {
@@ -199,18 +196,20 @@ define([
     deleteCommon: function(e) {
       e.preventDefault();
       var id = e.target.id.replace('delete-name-','');
-      var self = this;
-      $.ajax({
-        url: this.api+'/api/commonNames/'+id,
-        contentType: 'application/json',
-        dataType: 'json',
-        type: 'DELETE',
-        success: function() {
-          self.model.attributes.commonNames.remove({id: id});
-          self.trigger('editionWindowView:recordSaved');
-          $(e.target).parent().remove();
-        }
-      });
+      if(id !== undefined) {
+        $.ajax({
+          url: this.api+'/api/commonNames/'+id,
+          contentType: 'application/json',
+          dataType: 'json',
+          type: 'DELETE'
+        });
+        var idx = this.model.attributes.
+          commonNames.indexOf(_.findWhere(this.model.attributes.commonNames,
+                                          {id: parseInt(id)}));
+        this.model.attributes.commonNames.splice(idx, 1);
+        this.trigger('editionWindowView:recordSaved');
+      }
+      $(e.target).parent().remove();
     }
 
   });

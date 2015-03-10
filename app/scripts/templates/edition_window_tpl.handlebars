@@ -29,13 +29,12 @@
               value="{{region}}">
             <button class="btn-delete"></button>
           </div>
-        {{else}}
-          <div class="m-existing-item">
-            <input class="new-item" id="region-" type="text"
-              value="">
-            <button class="btn-delete"></button>
-          </div>
         {{/each}}
+        <div class="m-existing-item">
+          <input class="new-item" id="region-" type="text"
+            value="">
+          <button class="btn-delete"></button>
+        </div>
       </div>
 
       <button class="btn-add-new" id="add-new-dist">Add a new item</button>
@@ -60,14 +59,13 @@
             <input type="text" value="{{region}}" class="region">
             <button id="delete-name-{{id}}" class="common-delete btn-delete"></button>
           </div>
-        {{else}}
-          <div class="m-existing-item new-item">
-            <input type="text" value="" class="name">
-            <input type="text" value="" class="language">
-            <input type="text" value="" class="region">
-            <button class="btn-delete"></button>
-          </div>
         {{/each}}
+        <div class="m-existing-item new-item">
+          <input type="text" value="" class="name">
+          <input type="text" value="" class="language">
+          <input type="text" value="" class="region">
+          <button class="btn-delete"></button>
+        </div>
       </div>
       <button id="add-new-common" class="btn-add-new">Add a new item</button>
       <button type="submit" class="btn-send">send</button>
