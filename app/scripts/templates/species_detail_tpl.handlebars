@@ -48,10 +48,10 @@
         <td>{{familyName}}</td>
       </tr>
     {{/if}}
-    {{#if citesListings}}
+    {{#if citesListing}}
       <tr>
         <th>CITES appendices</th>
-        <td>{{citesListings}}</td>
+        <td>{{citesListing}}</td>
       </tr>
     {{/if}}
   {{/with}}
@@ -88,7 +88,7 @@
 
     <tr>
       <th>description</th>
-      <td class="description-cell">{{description}}</td>
+      <td class="description-cell">{{attributes.description}}</td>
       <td class="edition-cell"><button class="btn-edit" data="description">suggest changes</button></td>
     </tr>
 
