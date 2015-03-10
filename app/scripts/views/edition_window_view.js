@@ -16,6 +16,7 @@ define([
       'click .btn-cancel': 'closeInfowindow',
       'click .modal-background': 'closeInfowindow',
       'submit #update-description': 'updateDescription',
+      'click .dist-delete': 'deleteDist',
       'submit #update-distribution': 'updateDistribution',
       'click #add-new-dist': 'addNewDist',
       'click .common-delete': 'deleteCommon',
@@ -121,6 +122,25 @@ define([
       $el.find('input').attr('id','').val('');
       $el.find('input').addClass('new-item');
       $('.existing-items-list').append($el);
+    },
+
+    deleteDist: function(e) {
+      e.preventDefault();
+      var id = e.target.id.replace('delete-dist-','');
+      if(id !== undefined) {
+        $.ajax({
+          url: this.api+'/api/distribution/'+id,
+          contentType: 'application/json',
+          dataType: 'json',
+          type: 'DELETE'
+        });
+        var idx = this.model.attributes.
+          distribution.indexOf(_.findWhere(this.model.attributes.distribution,
+                                          {id: parseInt(id)}));
+        this.model.attributes.distribution.splice(idx, 1);
+        this.trigger('editionWindowView:recordSaved');
+      }
+      $(e.target).parent().remove();
     },
 
     updateCommonNames: function(e) {
