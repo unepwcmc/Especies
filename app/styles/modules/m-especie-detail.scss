@@ -9,24 +9,27 @@
     &.appendix-I {
       background: url(../images/cites-appendix.png) repeat scroll 0 0 rgba(0, 0, 0, 0);
       span {
-        line-height: 1.95em;
+        line-height: 26px;
         margin-left: 11px;
+        display: block;
       }
     }
 
     &.appendix-II {
       background: url("../images/cites-appendix.png") repeat scroll 0 234px rgba(0, 0, 0, 0);
       span {
-        line-height: 2em;
-        margin-left: 10px;
+        line-height: 26px;
+        margin-left: 9.5px;
+        display: block;
       }
     }
 
     &.appendix-III {
       background: url("../images/cites-appendix.png") repeat scroll 0 208px rgba(0, 0, 0, 0);
       span {
-        line-height: 2em;
-        margin-left: 7.5px;
+        line-height: 26px;
+        margin-left: 8px;
+        display: block;
       }
     }
 
