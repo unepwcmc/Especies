@@ -33,7 +33,10 @@ define([
     render: function() {
       this.$el.html(this.template( this.model.attributes ));
       $('#speciesName').text(this.model.attributes.scientificName);
-      $('#commonNames').text(this.model.attributes.commonNames.join(', '));
+      var sortedCommonNames = _.map(_.sortBy(this.model.attributes.commonNames,
+                                             function(d) { return d.name }),
+                                             function(d) { return d.name; });
+      $('#commonNames').text(_.first(sortedCommonNames, 3).join(', '));
       return this;
     },
 
