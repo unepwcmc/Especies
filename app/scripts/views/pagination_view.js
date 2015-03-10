@@ -51,7 +51,7 @@ define([
       }
 
       console.log(pages);
-      var bottomPage = this.data.currentPage > 10 ?
+      var bottomPage = (this.data.currentPage - (this.options.limit/2)) > 0 ?
         this.data.currentPage - (this.options.limit/2) :
         1;
       var pagesArr = _.first(_.range(bottomPage,
