@@ -1,3 +1,37 @@
 .m-especie-detail {
-  
+  .cites-appendix {
+    color: #fff;
+    height: 26px;
+    width: 26px;
+    font-style: normal;
+    display: inline-block;
+
+    &.appendix-I {
+      background: url(../images/cites-appendix.png) repeat scroll 0 0 rgba(0, 0, 0, 0);
+      span {
+        line-height: 1.95em;
+        margin-left: 11px;
+      }
+    }
+
+    &.appendix-II {
+      background: url("../images/cites-appendix.png") repeat scroll 0 234px rgba(0, 0, 0, 0);
+      span {
+        line-height: 2em;
+        margin-left: 10px;
+      }
+    }
+
+    &.appendix-III {
+      background: url("../images/cites-appendix.png") repeat scroll 0 208px rgba(0, 0, 0, 0);
+      span {
+        line-height: 2em;
+        margin-left: 7.5px;
+      }
+    }
+
+    &.appendix-NC {
+      background: url("../images/cites-appendix.png") repeat scroll 0 182px rgba(0, 0, 0, 0);
+    }
+  }
 }

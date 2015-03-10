@@ -34,7 +34,10 @@ define([
       this.$el.html(this.template({
         attributes: this.model.attributes,
         sortedCommonNames: this.model.sortedCommonNames(),
-        sortedDistribution: this.model.sortedDistribution()
+        sortedDistribution: this.model.sortedDistribution(),
+        citesListing: this.model.attributes.citesListing ?
+          this.model.attributes.citesListing.split(',') :
+          []
       }));
       $('#speciesName').text(this.model.attributes.scientificName);
       var sortedCommonNames = _.map(this.model.sortedCommonNames(),

@@ -48,13 +48,19 @@
         <td>{{familyName}}</td>
       </tr>
     {{/if}}
-    {{#if citesListing}}
-      <tr>
-        <th>CITES appendices</th>
-        <td>{{citesListing}}</td>
-      </tr>
-    {{/if}}
   {{/with}}
+  {{#if citesListing}}
+    <tr>
+      <th>CITES appendices</th>
+      <td>
+        {{#each citesListing}}
+          <div class="cites-appendix appendix-{{this}}">
+            <span>{{this}}</span>
+          </div>
+        {{/each}}
+      </td>
+    </tr>
+  {{/if}}
 
   <tr class="separata"></tr>
 
