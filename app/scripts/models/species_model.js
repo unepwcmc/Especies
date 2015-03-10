@@ -7,7 +7,17 @@ define(['backbone'], function(Backbone) {
 
   var SpecieModel = Backbone.Model.extend({
 
-    urlRoot: apiUrl
+    urlRoot: apiUrl,
+
+    sortedCommonNames: function() {
+      return _.sortBy(this.attributes.commonNames,
+                      function(d) { return d.name; });
+    },
+
+    sortedDistribution: function() {
+      return _.sortBy(this.attributes.distribution,
+                      function(d) { return d.region; });
+    }
 
   });
 

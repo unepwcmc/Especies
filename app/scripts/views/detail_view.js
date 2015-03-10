@@ -31,11 +31,14 @@ define([
     },
 
     render: function() {
-      this.$el.html(this.template( this.model.attributes ));
+      this.$el.html(this.template({
+        attributes: this.model.attributes,
+        sortedCommonNames: this.model.sortedCommonNames(),
+        sortedDistribution: this.model.sortedDistribution()
+      }));
       $('#speciesName').text(this.model.attributes.scientificName);
-      var sortedCommonNames = _.map(_.sortBy(this.model.attributes.commonNames,
-                                             function(d) { return d.name }),
-                                             function(d) { return d.name; });
+      var sortedCommonNames = _.map(this.model.sortedCommonNames(),
+                                    function(d) { return d.name; });
       $('#commonNames').text(_.first(sortedCommonNames, 3).join(', '));
       return this;
     },
