@@ -50,7 +50,6 @@ define([
         this.data.trunc = true;
       }
 
-      console.log(pages);
       var bottomPage = (this.data.currentPage - (this.options.limit/2)) > 0 ?
         this.data.currentPage - (this.options.limit/2) :
         1;

@@ -5,9 +5,9 @@
     {{/if}}
     {{#each pages}}
       {{#if current}}
-        <li class="is-current"><a href="?q={{../query}}&page={{name}}#especies">{{name}}</a></li>
+        <li class="is-current"><a href="?q={{../../query}}&page={{name}}#especies">{{name}}</a></li>
       {{else}}
-        <li><a href="?q={{../query}}&page={{name}}#especies">{{name}}</a></li>
+        <li><a href="?q={{../../query}}&page={{name}}#especies">{{name}}</a></li>
       {{/if}}
     {{/each}}
     {{#if trunc}}
