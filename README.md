@@ -6,15 +6,14 @@ Application to explore the species of Brazil
 Requirements:
 
 * Node Js 0.10+
-* Ruby 2.1.2+
 
 Install global dependencies:
 
     npm install -g grunt-cli bower
 
 Install project dependencies:
-    
-    bundle install && npm install && bower install
+
+    npm install && bower install
 
 Run local server:
 
