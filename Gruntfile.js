@@ -97,7 +97,7 @@ module.exports = function(grunt) {
     sass: {
       compile: {
         options: {
-          bundleExec: true,
+          sourceMap: true,
           style: 'expanded'
         },
         files: {
